@@ -13,6 +13,10 @@ AllCops:
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
     - '.git/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'vendor/**/*'
+    - 'Gemfile'
   TargetRubyVersion: 2.3
 
 Naming/PredicateName:
