@@ -63,6 +63,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'rubocop', '~> 0.77.0', require: false
+gem 'rubocop-rails'
+gem 'rubocop-rspec'
+gem 'rubocop-performance'
 gem 'popper_js', '~> 1.11.1'
 gem 'bootstrap', '4.0.0.alpha6'
 
