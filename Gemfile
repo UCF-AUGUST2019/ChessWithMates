@@ -75,3 +75,6 @@ source 'https://rails-assets.org' do
 end
 
 gem 'devise'
+
+# simple form for CRUD model
+gem 'simple_form'
