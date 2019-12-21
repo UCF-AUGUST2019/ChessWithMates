@@ -1,5 +1,5 @@
 # README
-Testing Codeship - back to migrate - add heroku run rake db:migrate command to CodeShip build script.
+Testing Codeship - gained access to Heroku.
 
 [![Codeship Status for UCF-AUGUST2019/ChessApp](https://app.codeship.com/projects/444e7260-ff3c-0137-36b1-3a5faa18747a/status?branch=master)](https://app.codeship.com/projects/377915)
 
