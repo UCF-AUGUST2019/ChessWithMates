@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'rspec/rails'
 
 RSpec.describe StaticController, type: :controller do
   describe 'static#index action' do

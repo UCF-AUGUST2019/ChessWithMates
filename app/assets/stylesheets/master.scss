@@ -1,7 +1,8 @@
 @import "bootstrap";
- 
+@import 'font_awesome5_webfont';
+
 .navbar {
-	background: image_url('nav_bg.png');
+	background-color: lavender;
 	box-shadow: -2px 0.5px 5px grey;
 }
 .navbar a {
