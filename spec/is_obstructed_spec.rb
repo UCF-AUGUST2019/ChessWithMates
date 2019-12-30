@@ -1,5 +1,5 @@
 require 'spec_helper'
-require './is_obstructed_simon'
+#require './is_obstructed_simon'
 
 # require 'rails_helper'
 RSpec.describe Piece, type: :model do
@@ -24,7 +24,7 @@ RSpec.describe Piece, type: :model do
   # !INVALID?
   it 'takes in desired destination(goal) and compares to piece current position to check if INVALID' do
     piece1 = FactoryBot.create(:piece)
-    expect(piece1.invalid?(piece1, 1, 5)).to eq(false)
-    expect(piece1.invalid?(piece1, 6, 6)).to eq(true)
+    expect(piece1.invalid?(piece1, 1, 5)).to eq(true)
+    expect(piece1.invalid?(piece1, 6, 6)).to eq(false)
   end
 end
