@@ -1,3 +1,5 @@
 class Game < ApplicationRecord
-  belongs_to :user
+  scope :available, -> { where(black_id: nil) }
+  belongs_to :user, required: false
+  has_many :pieces
 end
