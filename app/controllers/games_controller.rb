@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!, only: %w[create]
   def new
-    @game = Game.new
+   @game = Game.new
   end
 
   def create
@@ -10,7 +10,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
+    #@game = Game.find(params[:id])
   end
 
   private
