@@ -83,4 +83,35 @@ class Piece < ApplicationRecord
       end
     end
   end
+
+  def obstructed?(piece, goal_x, goal_y)
+    if invalid?(piece, goal_x, goal_y)
+      return "Invalid choice"
+    elsif horz?(piece, goal_x, goal_y)
+      return hor(piece, goal_x)
+    elsif vert?(piece, goal_x, goal_y)
+      return vert(piece, goal_y)
+    else
+      return diag(piece, goal_x, goal_y)
+    end
+  end
+end
+
+class King < Piece
+
+  def initialize(piece)
+    @King = piece
+  end
+
+  def move(goal_x, goal_y)
+    if @king.obstructed? != "Invalid choice" && @king.obstructed? != "is obstructed"
+      x_dist = (goal_x - @king.x_pos).abs
+      y_dist = (goal_y - @king.y_pos).abs
+      if x_dist == 1 || y_dist == 1
+        @king.x_pos = goal_x
+        @king.y_pos = goal_y
+      end
+    end
+  end
+
 end
