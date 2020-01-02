@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'rspec/rails'
 
 RSpec.describe Game, type: :model do
   context "available scope test" do 

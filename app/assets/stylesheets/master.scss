@@ -1,1 +1,14 @@
 @import "bootstrap";
+@import 'font_awesome5_webfont';
+
+.navbar {
+	background-color: lavender;
+	box-shadow: -2px 0.5px 5px grey;
+}
+.navbar a {
+	color: black;
+}
+
+.navbar-brand {
+	font-weight: bold;
+}
