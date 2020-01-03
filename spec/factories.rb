@@ -31,6 +31,11 @@ FactoryBot.define do
     password_confirmation { "secretPassword" }
   end
 
+  factory :piece, class: Piece do
+    x_pos {4}
+    y_pos {4}
+  end
+
   factory :game do
   	name { "random_name" }
   	white_id { 1 }
