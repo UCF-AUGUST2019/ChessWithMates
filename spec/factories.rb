@@ -31,7 +31,7 @@ FactoryBot.define do
     password_confirmation { "secretPassword" }
   end
 
-  factory :piece
+  factory :piece do
     x_pos {4}
     y_pos {4}
   end
