@@ -27,7 +27,7 @@ class Piece < ApplicationRecord
   
   def hor(goal_x, goal_y)
     dist = (goal_x - x_pos).abs
-    dist.times do |i|
+    (1..dist-1).each do |i|
       if goal_x > x_pos
         return true if Piece.where(x_pos: x_pos + i, y_pos: goal_y, game_id: game_id).count != 0 
       else
@@ -39,11 +39,11 @@ class Piece < ApplicationRecord
   
   def vert(goal_x, goal_y)
     dist = (goal_y - y_pos).abs
-    dist.times do |i|
+    (1..dist-1).each do |i|
       if goal_y > y_pos
-        return true if Piece.where(x_pos: goal_x, y_pos: y_pos + 1, game_id: game_id).count != 0
+        return true if Piece.where(x_pos: goal_x, y_pos: y_pos + i, game_id: game_id).count != 0
       else
-        return true if Piece.where(x_pos: goal_x, y_pos: y_pos - 1, game_id: game_id).count != 0
+        return true if Piece.where(x_pos: goal_x, y_pos: y_pos - i, game_id: game_id).count != 0
       end
     end
     false
@@ -52,7 +52,7 @@ class Piece < ApplicationRecord
   def diag (goal_x, goal_y)
     dist_y = goal_y - y_pos
     dist_x = goal_x - x_pos
-    dist_x.abs.times do |i|
+    (1..dist_x.abs-1).each do |i|
       if dist_x < 0 && dist_y < 0
         return true if Piece.where(x_pos: x_pos - i, y_pos: y_pos - i, game_id: game_id).count != 0
       elsif dist_x < 0 && dist_y > 0
