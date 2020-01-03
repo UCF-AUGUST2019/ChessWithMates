@@ -78,3 +78,5 @@ gem 'devise'
 
 # simple form for CRUD model
 gem 'simple_form'
+
+gem 'font_awesome5_rails'

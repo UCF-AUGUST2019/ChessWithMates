@@ -1,4 +1,6 @@
 class Piece < ApplicationRecord
+  belongs_to :user
+  belongs_to :game
 
   def horz?(goal_x, goal_y)
     y_pos == goal_y && x_pos != goal_x
