@@ -1,27 +1,27 @@
 FactoryBot.define do
-  factory :king do
+  # factory :king do
     
-  end
+  # end
 
-  factory :queen do
+  # factory :queen do
     
-  end
+  # end
 
-  factory :bishop do
+  # factory :bishop do
     
-  end
+  # end
 
-  factory :knight do
+  # factory :knight do
     
-  end
+  # end
 
-  factory :rook do
+  # factory :rook do
     
-  end
+  # end
 
-  factory :pawn do
+  # factory :pawn do
     
-  end
+  # end
 
   factory :user do
     sequence :email do |n|
@@ -31,7 +31,7 @@ FactoryBot.define do
     password_confirmation { "secretPassword" }
   end
 
-  factory :piece, class: Piece do
+  factory :piece
     x_pos {4}
     y_pos {4}
   end
