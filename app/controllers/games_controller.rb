@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   before_action :authenticate_user!, only: %w[create]
   
   def index
-    @available_games = Game.available.first(10)
+    @games = Game.available
   end
   
   def new

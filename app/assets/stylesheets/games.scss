@@ -1,37 +1,45 @@
 #show_game {
-  background-image: url('game_bg.png');
-  padding: 50px;
-} 
+	background-image: url('game_bg.png');
+	padding: 50px;
+}
 
 .chessboard {
-  width: 642px;
-  height: 640px;
-  background-image: url("white_space.png");
-  border: 1px solid #000;
-  -moz-box-shadow: 0 0 3px #000;
-  -webkit-box-shadow: 0 0 3px #000;
-  box-shadow: 0 0 3px #000;
-  margin-right: auto;
-  margin-left: auto;
+	width: 642px;
+	height: 640px;
+	background-image: url("white_space.png");
+	border: 1px solid #000;
+	-moz-box-shadow: 0 0 3px #000;
+	-webkit-box-shadow: 0 0 3px #000;
+	box-shadow: 0 0 3px #000;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .black {
-  float: left;
-  width: 80px;
-  height: 80px;
-  background-image: url("black_space.png");
-  font-size: 12px;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
+	float: left;
+	width: 80px;
+	height: 80px;
+	background-image: url("black_space.png");
+	font-size: 12px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .white {
-  float: left;
-  width: 80px;
-  height: 80px;
-  font-size: 12px;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
+	float: left;
+	width: 80px;
+	height: 80px;
+	font-size: 12px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.gamehome-header {
+	text-align: center;
+}
+
+.available {
+	text-align: center;
 }
