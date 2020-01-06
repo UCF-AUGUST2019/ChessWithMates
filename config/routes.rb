@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static#index'
   
-  resources :games, only: [:new, :create, :show]
+  resources :games, only: [:index, :new, :create, :show]
 end
