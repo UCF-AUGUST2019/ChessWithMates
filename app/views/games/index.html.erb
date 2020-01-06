@@ -5,16 +5,29 @@
 
 <%# AVAILABLE GAMES (BLACK_ID = NIL) %>
 <div class="available">
-  <h3>Available Games:</h3>
+  <h3>List of Available Games:</h3>
+
   <br />
-  <% @games.each do |game| %>
-    <div>
+
+  <% if @avail_games.present? %>
+    <h4>Open Games:</h4>
+  <% end %>
+
+  <br />
+
+<% @avail_games.each do |game| %>
       <div>
-        <p>
+         <p>
           <%= game.name %>
         </p>
-        <button>Join Game!</button>
-      </div>
+        <p>
+       	  <% white_id = User.find_by(id: game.user_id) %>
+          <%= simple_form_for game, :method => :put do |f| %>
+            <%= f.input :black_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+            <%= f.submit 'Join Game' %>
+          <% end %>
+        </p>
     </div>
-  <% end %>
+    <% end %>
+    
 </div>

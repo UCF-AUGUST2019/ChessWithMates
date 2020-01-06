@@ -2,7 +2,11 @@ class GamesController < ApplicationController
   before_action :authenticate_user!, only: %w[create]
   
   def index
-    @games = Game.available
+    if user_signed_in?
+      @avail_games = Game.available
+    else
+      redirect_to root_path, alert: 'You must be Signed In.'
+    end
   end
   
   def new
@@ -25,7 +29,7 @@ class GamesController < ApplicationController
   end
 
   private
-  
+
   def game_params
     params.require(:game).permit(:name, :white_id, :black_id, :user_id)
   end
