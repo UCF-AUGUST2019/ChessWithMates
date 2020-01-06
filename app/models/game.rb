@@ -8,48 +8,48 @@ class Game < ApplicationRecord
     # WHITE PIECES
 
     (1..8).each do |f|
-      Pawn.create(x_pos: f, y_pos: 7, game_id: id, user_id: white_id, color: white)
+      Pawn.create(x_pos: f, y_pos: 7, game_id: id, user_id: white_id, color: "white")
     end
 
     [1,8].each do |f|
-    	Rook.create(x_pos: f, y_pos: 8, game_id: id, user_id: white_id, color: white)
+    	Rook.create(x_pos: f, y_pos: 8, game_id: id, user_id: white_id, color: "white")
     end
 
     [2,7].each do |f|
-    	Knight.create(x_pos: f, y_pos: 8, game_id: id, user_id: white_id, color: white)
+    	Knight.create(x_pos: f, y_pos: 8, game_id: id, user_id: white_id, color: "white")
     end
 
     [3,6].each do |f|
-    	Bishop.create(x_pos: f, y_pos: 8, game_id: id, user_id: white_id, color: white)
+    	Bishop.create(x_pos: f, y_pos: 8, game_id: id, user_id: white_id, color: "white")
     end
 
-    King.create(x_pos: 4, y_pos: 8, game_id: id, user_id: white_id, color: white)
+    King.create(x_pos: 4, y_pos: 8, game_id: id, user_id: white_id, color: "white")
 
 
-    Queen.create(x_pos: 5, y_pos: 8, game_id: id, user_id: white_id, color: white)
+    Queen.create(x_pos: 5, y_pos: 8, game_id: id, user_id: white_id, color: "white")
 
     # BLACK PIECES 
 
     (1..8).each do |f|
-      Pawn.create(x_pos: f, y_pos: 2, game_id: id, user_id: black_id, color: black)
+      Pawn.create(x_pos: f, y_pos: 2, game_id: id, user_id: black_id, color: "black")
     end
 
     [1,8].each do |f|
-    	Rook.create(x_pos: f, y_pos: 1, game_id: id, user_id: black_id, color: black)
+    	Rook.create(x_pos: f, y_pos: 1, game_id: id, user_id: black_id, color: "black")
     end
 
     [2,7].each do |f|
-    	Knight.create(x_pos: f, y_pos: 1, game_id: id, user_id: black_id, color: black)
+    	Knight.create(x_pos: f, y_pos: 1, game_id: id, user_id: black_id, color: "black")
     end
 
     [3,6].each do |f|
-    	Bishop.create(x_pos: f, y_pos: 8\1, game_id: id, user_id: black_id, color: black)
+    	Bishop.create(x_pos: f, y_pos: 1, game_id: id, user_id: black_id, color: "black")
     end
 
-    King.create(x_pos: 4, y_pos: 1, game_id: id, user_id: black_id, color: black)
+    King.create(x_pos: 4, y_pos: 1, game_id: id, user_id: black_id, color: "black")
 
 
-    Queen.create(x_pos: 5, y_pos: 1, game_id: id, user_id: black_id, color: black)
+    Queen.create(x_pos: 5, y_pos: 1, game_id: id, user_id: black_id, color: "black")
 
   end
 
