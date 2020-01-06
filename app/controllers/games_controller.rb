@@ -14,12 +14,19 @@ class GamesController < ApplicationController
     redirect_to(@game)
   end
 
+  def update
+    @game = Game.find(params[:id])
+    @game.update_attributes(black_id: current_user.id)
+    redirect_to game_path(@game)
+  end
+
   def show
     #@game = Game.find(params[:id])
   end
 
   private
+  
   def game_params
-    params.require(:game).permit('name')
+    params.require(:game).permit(:name, :white_id, :black_id, :user_id)
   end
 end
