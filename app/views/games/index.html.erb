@@ -15,19 +15,19 @@
 
   <br />
 
-<% @avail_games.each do |game| %>
-      <div>
-         <p>
-          <%= game.name %>
-        </p>
-        <p>
-       	  <% white_id = User.find_by(id: game.user_id) %>
-          <%= simple_form_for game, :method => :put do |f| %>
-            <%= f.input :black_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-            <%= f.submit 'Join Game' %>
-          <% end %>
-        </p>
+  <% @avail_games.each do |game| %>
+    <div>
+      <p>
+        <%= game.name %>
+      </p>
+      <p>
+        <% white_id = User.find_by(id: game.user_id) %>
+        <%= simple_form_for game, :method => :put do |f| %>
+          <%= f.input :black_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+          <%= f.submit 'Join Game' %>
+        <% end %>
+      </p>
     </div>
-    <% end %>
-    
+  <% end %>
+
 </div>
