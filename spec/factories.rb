@@ -32,8 +32,10 @@ FactoryBot.define do
   end
 
   factory :piece, class: Piece do
-    x_pos {4}
-    y_pos {4}
+    game_id    {12345}
+    player_id  {67890}
+    x_pos      {4}
+    y_pos      {4}
   end
 
   factory :game do

@@ -22,6 +22,8 @@ RSpec.describe Piece, type: :model do
   end
   # !INVALID?
   it 'takes in desired destination(goal) and compares to piece current position to check if INVALID' do
+    user1 = FactoryBot.create(:user)
+    game1 = FactoryBot.create(:game)
     piece1 = FactoryBot.create(:piece)
     expect(piece1.invalid?(1, 5)).to eq(true)
     expect(piece1.invalid?(6, 6)).to eq(false)

@@ -49,7 +49,7 @@ class Piece < ApplicationRecord
     false
   end
     
-  def diag (goal_x, goal_y)
+  def diag(goal_x, goal_y)
     dist_y = goal_y - y_pos
     dist_x = goal_x - x_pos
     (1..dist_x.abs-1).each do |i|
@@ -85,5 +85,11 @@ class Piece < ApplicationRecord
     else
       raise 'Invalid move. Try again: '
     end
+  end
+
+  def capture(player, goal_x, goal_y)
+    if Piece.where(x_pos: goal_x, y_pos: goal_y, game_id: game_id, player_id: !player)
+      return Piece.where(x_pos: goal_x, y_pos: goal_y, game_id: game_id, player_id: !player, captured: true)
+    end 
   end
 end
