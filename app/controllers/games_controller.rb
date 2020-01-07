@@ -14,8 +14,11 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = current_user.games.create(game_params)
-    redirect_to(@game)
+    # @game = current_user.games.create(game_params)
+    # redirect_to(@game)
+
+    @game = Game.create(white_id: current_user.id)
+    redirect_to game_path(@game)
   end
 
   def update

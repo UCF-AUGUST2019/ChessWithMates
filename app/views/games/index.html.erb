@@ -16,7 +16,7 @@
   <% if @avail_games.blank? %>
     <h4>No Open Games:</h4>
     <br />
-    <button>Create Game</button>
+     <%=link_to 'Create Game', games_path, :class => "btn", :method => 'POST' %> 
   <% end %>
 
   <br />
@@ -27,7 +27,6 @@
         <%= game.name %>
       </p>
       <p>
-        <%# <% game.white_user_name %> %>
         <%= simple_form_for game, :method => :put do |f| %>
           <%= f.input :black_id, :as => :hidden, :input_html => { :value => current_user.id } %>
           <%= f.submit 'Join Game' %>
