@@ -27,7 +27,7 @@
         <%= game.name %>
       </p>
       <p>
-        <% game.white_user_name %>
+        <%# <% game.white_user_name %> %>
         <%= simple_form_for game, :method => :put do |f| %>
           <%= f.input :black_id, :as => :hidden, :input_html => { :value => current_user.id } %>
           <%= f.submit 'Join Game' %>
