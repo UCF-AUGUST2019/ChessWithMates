@@ -86,15 +86,8 @@ class Piece < ApplicationRecord
     end
   end
   
+  # call capture on the piece to be captured.
   def capture
     self.update(captured: true)
   end
-
-  # def capture(player, goal_x, goal_y)
-  #   piece = Piece.where(x_pos: goal_x, y_pos: goal_y, game_id: game_id, player_id: !player)
-  #   if piece
-  #     piece.update(captured: true)
-  #     # return Piece.where(x_pos: goal_x, y_pos: goal_y, game_id: game_id, player_id: !player, captured: true)
-  #   end 
-  # end
 end
