@@ -1,5 +1,4 @@
 class Piece < ApplicationRecord
-  belongs_to :user
   belongs_to :game
 
   def horz?(goal_x, goal_y)
@@ -86,4 +85,16 @@ class Piece < ApplicationRecord
       raise 'Invalid move. Try again: '
     end
   end
+  
+  def capture
+    self.update(captured: true)
+  end
+
+  # def capture(player, goal_x, goal_y)
+  #   piece = Piece.where(x_pos: goal_x, y_pos: goal_y, game_id: game_id, player_id: !player)
+  #   if piece
+  #     piece.update(captured: true)
+  #     # return Piece.where(x_pos: goal_x, y_pos: goal_y, game_id: game_id, player_id: !player, captured: true)
+  #   end 
+  # end
 end
