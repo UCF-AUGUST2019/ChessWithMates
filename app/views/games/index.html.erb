@@ -1,0 +1,19 @@
+<h1 class="gamehome-header">Game Homepage</h1>
+
+<br />
+<br />
+
+<%# AVAILABLE GAMES (BLACK_ID = NIL) %>
+<div class="available">
+  <h3>Available Games:</h3>
+  <br />
+  <% @games.each do |game| %>
+    <div>
+      <div>
+        <p>
+          <%= game.name %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
