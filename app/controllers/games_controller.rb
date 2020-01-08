@@ -1,12 +1,8 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!, only: %w[create]
+  before_action :authenticate_user!
   
   def index
-    if user_signed_in?
       @avail_games = Game.available
-    else
-      redirect_to root_path, alert: 'You must be Signed In.'
-    end
   end
   
   def new
@@ -14,11 +10,8 @@ class GamesController < ApplicationController
   end
 
   def create
-    # @game = current_user.games.create(game_params)
-    # redirect_to(@game)
-
-    @game = Game.create(white_id: current_user.id)
-    redirect_to game_path(@game)
+      @game = Game.create(white_id: current_user.id)
+      redirect_to game_path(@game)
   end
 
   def update

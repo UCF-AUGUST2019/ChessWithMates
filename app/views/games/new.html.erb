@@ -1,5 +1,11 @@
-<h1>New game</h1>
-<%= simple_form_for @game do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Create" %>
-<% end %>
+<br />
+<div class="booyah-box col-10 offset-1 text-center">
+  <br />
+  <h1>New game:</h1>
+  <br />
+  <%= simple_form_for @game do |f| %>
+    <%= f.input :name %>
+    <br />
+    <%= f.submit "Create" %>
+  <% end %>
+</div>

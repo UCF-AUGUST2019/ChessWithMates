@@ -16,7 +16,7 @@
   <% if @avail_games.blank? %>
     <h4>No Open Games:</h4>
     <br />
-     <%=link_to 'Create Game', games_path, :class => "btn", :method => 'POST' %> 
+    <%= link_to 'Create Game', new_game_path, class: 'nav-link' %>
   <% end %>
 
   <br />
