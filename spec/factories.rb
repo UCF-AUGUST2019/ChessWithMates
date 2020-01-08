@@ -37,6 +37,7 @@ FactoryBot.define do
     game_id    {2}
     player_id  {1}
     captured   {false}
+    type       {'queen'}
   end
 
   factory :game do

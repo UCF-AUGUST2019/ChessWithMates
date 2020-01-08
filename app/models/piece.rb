@@ -77,7 +77,7 @@ class Piece < ApplicationRecord
   end
 
   def move(goal_x, goal_y)
-    if move? 
+    if self.move?(goal_x, goal_y) 
       x_pos = goal_x
       y_pos = goal_y
       save!
