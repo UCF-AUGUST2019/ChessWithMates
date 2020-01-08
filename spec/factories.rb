@@ -1,7 +1,8 @@
 FactoryBot.define do
-  # factory :king do
-    
-  # end
+  factory :king, class: Piece do
+    type      {'King'}
+    has_moved {false}
+  end
 
   # factory :queen do
     
@@ -19,9 +20,10 @@ FactoryBot.define do
     
   # end
 
-  # factory :pawn do
-    
-  # end
+  factory :pawn, class: Piece do
+    type      {'Pawn'}
+    has_moved {false}
+  end
 
   factory :user do
     sequence :email do |n|
@@ -37,7 +39,8 @@ FactoryBot.define do
     game_id    {2}
     player_id  {1}
     captured   {false}
-    type       {'queen'}
+    type       {'Pawn'}
+    has_moved  {false}
   end
 
   factory :game do
