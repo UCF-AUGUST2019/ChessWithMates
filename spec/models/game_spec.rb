@@ -15,7 +15,6 @@ RSpec.describe Game, type: :model do
   describe "#populate_board!" do
   	it "should add 32 pieces to the game" do
   		game = Game.create!
-  		game.populate_board!
   		expect(game.pieces.count).to eq(32)
   	end
   end
