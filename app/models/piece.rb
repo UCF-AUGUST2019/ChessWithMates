@@ -2,6 +2,7 @@ class Piece < ApplicationRecord
   belongs_to :user, required: false
   belongs_to :game, required: false
 
+
   def horz?(goal_x, goal_y)
     y_pos == goal_y && x_pos != goal_x
   end
@@ -85,5 +86,10 @@ class Piece < ApplicationRecord
     else
       raise 'Invalid move. Try again: '
     end
+  end
+  
+  # call capture on the piece to be captured.
+  def capture
+    self.update(captured: true)
   end
 end
