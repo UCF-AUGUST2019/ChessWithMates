@@ -72,7 +72,7 @@ RSpec.describe Piece, type: :model do
     expect(piece1.obstructed?(4, 7)).to eq(false)
     expect(piece1.obstructed?(7, 4)).to eq(false)
     expect(piece1.obstructed?(3, 5)).to eq(false)
-    expect{piece1.obstructed?(3, 7)}.to raise_error(RuntimeError)
+    expect(piece1.obstructed?(3, 7)).to eq("Invalid choice. Please choose again")
   end
   # !CAPTURE
   it 'takes in the desired space and current player and sets the piece at the goal to captured' do

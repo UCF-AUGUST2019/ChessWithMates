@@ -68,7 +68,7 @@ class Piece < ApplicationRecord
   end
 
   def obstructed?(goal_x, goal_y)
-    raise "Invalid choice. Please choose again" unless horz?(goal_x, goal_y) || vert?(goal_x, goal_y) || diag?(goal_x, goal_y)
+    return "Invalid choice. Please choose again" unless horz?(goal_x, goal_y) || vert?(goal_x, goal_y) || diag?(goal_x, goal_y)
     
     return hor(goal_x, goal_y) if horz?(goal_x, goal_y)
       
@@ -84,7 +84,7 @@ class Piece < ApplicationRecord
       y_pos = goal_y
       save!
     else
-      raise 'Invalid move. Try again: '
+      return 'Invalid move. Try again: '
     end
   end
   
