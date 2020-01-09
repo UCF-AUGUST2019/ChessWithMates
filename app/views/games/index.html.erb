@@ -1,19 +1,31 @@
-<h1 class="gamehome-header">Game Homepage</h1>
-
-<br />
-<br />
-
 <%# AVAILABLE GAMES (BLACK_ID = NIL) %>
 <div class="available">
-  <h3>Available Games:</h3>
+  <h1>List of Available Games:</h1>
+
   <br />
-  <% @games.each do |game| %>
-    <div>
-      <div>
-        <p>
-          <%= game.name %>
-        </p>
-      </div>
-    </div>
+  <br />
+
+  <% if @avail_games.present? %>
+    <h3>Open Games:</h3>
   <% end %>
+
+  <% if @avail_games.blank? %>
+    <h3>No Open Games:</h3>
+    <br />
+    <%= link_to 'Create Game', new_game_path, class: 'nav-link' %>
+  <% end %>
+
+  <br />
+
+  <% @avail_games.each do |game| %>
+    <h6>
+      <%= game.name %>
+    </h6>
+      <%= simple_form_for game, :method => :put do |f| %>
+        <%= f.input :black_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+        <%= f.submit 'Join Game' %>
+      <% end %>
+      <br />
+  <% end %>
+
 </div>
