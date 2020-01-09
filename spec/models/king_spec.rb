@@ -7,6 +7,6 @@ RSpec.describe King, type: :model do
     game1 = FactoryBot.create(:game)
     FactoryBot.create(:piece, game: game1, player_id: user1.id, type: 'King')
     piece1 = Piece.where(game: game1, player_id: user1.id, type: 'King').first
-    expect(piece1.move(5, 5)).to eq(true)
+    expect(piece1.move(4, 5)).to eq(true)
   end
 end
