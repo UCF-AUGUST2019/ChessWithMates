@@ -32,8 +32,11 @@ FactoryBot.define do
   end
 
   factory :piece do
-    x_pos {4}
-    y_pos {4}
+    x_pos      {4}
+    y_pos      {4}
+    game_id    {2}
+    player_id  {1}
+    captured   {false}
   end
 
   factory :game do
