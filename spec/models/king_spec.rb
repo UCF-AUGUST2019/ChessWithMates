@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe King, type: :model do
+
   # !MOVE?
   it 'checks if the entered move is valid and then moves the king' do
     user1 = FactoryBot.create(:user)

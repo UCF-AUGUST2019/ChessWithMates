@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Pawn, type: :model do
+
   # !MOVE?
   it 'checks if the entered move is valid and the first move, then moves the pawn 2 spaces' do
     user1 = FactoryBot.create(:user)
@@ -25,4 +26,5 @@ RSpec.describe Pawn, type: :model do
     expect(piece1.move(4, 3)).to eq(true)
     expect(piece1.move(3, 3)).to eq(true)   
   end
+
 end

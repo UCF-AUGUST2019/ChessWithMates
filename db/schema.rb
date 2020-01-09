@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_035511) do
     t.string "name"
     t.integer "white_id"
     t.integer "black_id"
+    t.integer "turn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_035511) do
     t.integer "x_pos"
     t.integer "y_pos"
     t.string "type"
+    t.string "color"
     t.integer "player_id"
     t.integer "game_id"
     t.datetime "created_at", null: false
