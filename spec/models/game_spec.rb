@@ -7,7 +7,7 @@ RSpec.describe Game, type: :model do
       Game.create!
       expect(Game.available.size).to eq 1
       
-      Game.create!(white_id: 1, black_id: 0)
+      Game.create!(white_id: 1, black_id: 2)
       expect(Game.available.size).to eq(1)
     end
   end
