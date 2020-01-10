@@ -1,8 +1,6 @@
 # README
 [![Codeship Status for UCF-AUGUST2019/ChessApp](https://app.codeship.com/projects/444e7260-ff3c-0137-36b1-3a5faa18747a/status?branch=master)](https://app.codeship.com/projects/377915)
 
-Master Branch update 1/9/20 > push to Heroku
-
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
