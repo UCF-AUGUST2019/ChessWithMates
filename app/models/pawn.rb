@@ -24,5 +24,9 @@ class Pawn < Piece
 	  end
     false
   end
+
+  def render()
+  	'fa fa-chess-pawn'
+  end
   
 end
