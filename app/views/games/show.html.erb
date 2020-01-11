@@ -1,33 +1,33 @@
 <div id="show_game">
 	<div class="chessboard">
-		<% 8.times do |y| %>
+		<% (1..8).each do |y| %>
 			<div class="row">
-				<% 8.times do |x| %>
+				<% (1..8).each do |x| %>
 					<% if y.odd? %>
 						<% if x.odd? %>
 							<div class="black">
-								<% @game.pieces.where(x_pos: x, y_pos: y, type: 'Pawn').each do |piece| %>
-									<i class="<%= piece.render %>"></i>
+								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
+									<span class="<%= piece.render %> piece"></span>
 								<% end %>
 							</div>
 						<% else %>
 							<div class="white">
-								<% @game.pieces.where(x_pos: x, y_pos: y, type: 'Pawn').each do |piece| %>
-									<i class="<%= piece.render %>"></i>
+								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
+									<span class="<%= piece.render %> piece"></span>
 								<% end %>
 							</div>
 						<% end %>
 					<% else %>
 						<% if x.odd? %>
 							<div class="white">
-								<% @game.pieces.where(x_pos: x, y_pos: y, type: 'Pawn').each do |piece| %>
-									<i class="<%= piece.render %>"></i>
+								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
+									<span class="<%= piece.render %> piece"></span>
 								<% end %>
 							</div>
 						<% else %>
 							<div class="black">
-								<% @game.pieces.where(x_pos: x, y_pos: y, type: 'Pawn').each do |piece| %>
-									<i class="<%= piece.render %>"></i>
+								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
+									<span class="<%= piece.render %> piece"></span>
 								<% end %>
 							</div>
 						<% end %>
