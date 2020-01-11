@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Rook, type: :model do
-  	# !MOVE?
+  # !MOVE?
   it 'checks if desired move is horz or vert' do
     user1 = FactoryBot.create(:user)
     game1 = FactoryBot.create(:game)

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Queen, type: :model do
-   it 'checks if desired move is horz, vert or diag' do
+  # !MOVE?
+  it 'checks if desired move is horz, vert or diag' do
     user1 = FactoryBot.create(:user)
     game1 = FactoryBot.create(:game)
     FactoryBot.create(:piece, game: game1, player_id: user1.id, type: 'Queen')

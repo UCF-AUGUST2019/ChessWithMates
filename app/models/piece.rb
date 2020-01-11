@@ -92,4 +92,5 @@ class Piece < ApplicationRecord
   def capture
     self.update(captured: true)
   end
+
 end

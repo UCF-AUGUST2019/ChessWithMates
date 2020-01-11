@@ -5,4 +5,8 @@ class King < Piece
     false
   end
 
+  def render
+  	'fa fa-chess-king'
+  end
+
 end

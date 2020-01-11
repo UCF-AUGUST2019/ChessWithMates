@@ -1,76 +1,55 @@
 <div id="show_game">
 	<div class="chessboard">
-	  <!-- 1st Row -->
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <!-- 2nd Row -->
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <!-- 3rd Row -->
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <!-- 4th Row -->
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <!-- 5th Row -->
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <!-- 6th Row -->
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <div class="black"></div>
-	  <div class="white"></div>
-	  <!-- 7th Row -->
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <!-- 8th Row -->
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
-	  <div class="black">Piece</div>
-	  <div class="white">Piece</div>
+		<% (1..8).each do |y| %>
+			<div class="row">
+				<% (1..8).each do |x| %>
+					<% if y.odd? %>
+						<% if x.odd? %>
+							<div class="black space">
+								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
+									<% if piece.player_id == @game.white_id %>
+										<span class="<%= piece.render %> white piece"></span>
+									<% else %>
+										<span class="<%= piece.render %> red piece"></span>
+									<% end %>
+								<% end %>
+							</div>
+						<% else %>
+							<div class="space">
+								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
+									<% if piece.player_id == @game.white_id %>
+										<span class="<%= piece.render %> white piece"></span>
+									<% else %>
+										<span class="<%= piece.render %> red piece"></span>
+									<% end %>
+								<% end %>
+							</div>
+						<% end %>
+					<% else %>
+						<% if x.odd? %>
+							<div class="space">
+								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
+									<% if piece.player_id == @game.white_id %>
+										<span class="<%= piece.render %> white piece"></span>
+									<% else %>
+										<span class="<%= piece.render %> red piece"></span>
+									<% end %>
+								<% end %>
+							</div>
+						<% else %>
+							<div class="black space">
+								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
+									<% if piece.player_id == @game.white_id %>
+										<span class="<%= piece.render %> white piece"></span>
+									<% else %>
+										<span class="<%= piece.render %> red piece"></span>
+									<% end %>
+								<% end %>
+							</div>
+						<% end %>
+					<% end %>
+				<% end %>
+			</div>
+		<% end %>
 	</div>
 </div>
