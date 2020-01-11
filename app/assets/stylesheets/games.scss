@@ -13,7 +13,6 @@
 	box-shadow: 0 0 3px #000;
 	margin-right: auto;
 	margin-left: auto;
-	color: blue;
 }
 
 .row {
@@ -21,28 +20,20 @@
 	margin-right: 0px !important;
 }
 
-.black {
+.space {
 	float: left;
 	width: 80px;
 	height: 80px;
-	background-image: url("black_space.png");
 	font-size: 12px;
 	text-align: center;
 	display: table-cell;
 	vertical-align: middle;
-	-webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;	
 }
 
-.white {
-	float: left;
-	width: 80px;
-	height: 80px;
-	font-size: 12px;
-	text-align: center;
-	display: table-cell;
-	vertical-align: middle;
+.black {
+	background-image: url("black_space.png");
 }
+
 
 .gamehome-header {
 	text-align: center;
@@ -52,7 +43,22 @@
 	text-align: center;
 }
 
-.piece {
-	font-size: 40px;
+.white {
+	background: image_url('wp.png');
 }
 
+.red {
+	background: image_url('bp.jpg');
+	background-size: fill;
+}
+
+.piece {
+	font-size: 50px;
+	margin-top: 10px;
+	color: red;
+	text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
