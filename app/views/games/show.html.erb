@@ -3,51 +3,15 @@
 		<% (1..8).each do |y| %>
 			<div class="row">
 				<% (1..8).each do |x| %>
-					<% if y.odd? %>
-						<% if x.odd? %>
-							<div class="black space">
-								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
-									<% if piece.player_id == @game.white_id %>
-										<span class="<%= piece.render %> white piece"></span>
-									<% else %>
-										<span class="<%= piece.render %> red piece"></span>
-									<% end %>
-								<% end %>
-							</div>
-						<% else %>
-							<div class="space">
-								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
-									<% if piece.player_id == @game.white_id %>
-										<span class="<%= piece.render %> white piece"></span>
-									<% else %>
-										<span class="<%= piece.render %> red piece"></span>
-									<% end %>
-								<% end %>
-							</div>
+					<div class="<%= (x + y).even? ? 'black' : 'white' %> space">
+						<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
+							<% if piece.player_id == @game.white_id %>
+								<span class="<%= piece.render %> white piece"></span>
+							<% else %>
+								<span class="<%= piece.render %> red piece"></span>
+							<% end %>
 						<% end %>
-					<% else %>
-						<% if x.odd? %>
-							<div class="space">
-								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
-									<% if piece.player_id == @game.white_id %>
-										<span class="<%= piece.render %> white piece"></span>
-									<% else %>
-										<span class="<%= piece.render %> red piece"></span>
-									<% end %>
-								<% end %>
-							</div>
-						<% else %>
-							<div class="black space">
-								<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
-									<% if piece.player_id == @game.white_id %>
-										<span class="<%= piece.render %> white piece"></span>
-									<% else %>
-										<span class="<%= piece.render %> red piece"></span>
-									<% end %>
-								<% end %>
-							</div>
-						<% end %>
-					<% end %>
+					</div>
 				<% end %>
 			</div>
 		<% end %>
