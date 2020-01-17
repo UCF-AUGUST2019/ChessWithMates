@@ -38,6 +38,7 @@ FactoryBot.define do
     player_id  {1}
     captured   {false}
     has_moved  {false}
+    color      {'White'}
   end
 
   factory :game do
