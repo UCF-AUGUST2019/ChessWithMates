@@ -14,11 +14,13 @@ class King < Piece
   # then call valid_move? with coords to king position would be a good way to do that
 
   def check?
+    checkThreats = []
     if self.color == 'Black'
       Piece.find_by(game_id: game_id, color: 'White').move(x_pos, y_pos)
     else
       Piece.find_by(game_id: game_id, color: 'Black').move(x_pos, y_pos)
     end
+    # return true if checkThreats.length > 0
   end
 
   # Ignore all this please!

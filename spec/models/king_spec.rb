@@ -16,6 +16,6 @@ RSpec.describe King, type: :model do
   it 'checks if the king is in...check' do
   	piece1 = Piece.create(game_id: 1, player_id: 1, type: 'King', y_pos: 4, x_pos: 4, color: 'White')
     piece2 = Piece.create(game_id: 1, player_id: 2, type: 'Knight', y_pos: 5, x_pos: 6, color: 'Black')
-    expect(piece1.cheque?).to eq(true)
+    expect(piece1.check?).to eq(true)
   end
 end
