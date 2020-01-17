@@ -4,6 +4,15 @@ class Game < ApplicationRecord
   has_many :pieces
   after_create :populate_board!
 
+  def turn?
+    # white goes first at creation of game
+
+    # don't allow other player to move if not their turn
+
+    # after player's move change turn
+
+  end
+  
   def populate_board!
     # WHITE PIECES
 

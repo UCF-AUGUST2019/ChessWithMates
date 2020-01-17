@@ -2,7 +2,7 @@
 require 'rspec/rails'
 require 'spec_helper'
 
-ENV['RAILS_ENV'] ||= 'test'
+# ENV['RAILS_ENV'] ||= 'test' (relocated at top of spec_helper.rb)
 
 require File.expand_path('../config/environment', __dir__)
 
