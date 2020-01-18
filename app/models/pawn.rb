@@ -29,4 +29,15 @@ class Pawn < Piece
   	'fa fa-chess-pawn'
   end
   
+  # pawns can promote when they make it to the other
+  # player's starting area
+  def promote(newType)
+    # we check that the y_pos is 1 or 8 because
+    # a pawn should only be able to be there legally
+    # by crossing the board
+    if self.y_pos == 1 || self.y_pos == 8
+      # sets the type of the pawn to what's entered by the user
+      self.update(type: newType)
+    end
+  end
 end
