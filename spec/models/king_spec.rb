@@ -12,4 +12,10 @@ RSpec.describe King, type: :model do
     piece1 = Piece.where(game: game1, player_id: user1.id, type: 'King').first
     expect(piece1.move(4, 5)).to eq(true)
   end
+  # !CHECK?
+  it 'checks if the king is in...check' do
+  	piece1 = Piece.create(game_id: 1, player_id: 1, type: 'King', y_pos: 4, x_pos: 4, color: 'White')
+    piece2 = Piece.create(game_id: 1, player_id: 2, type: 'Knight', y_pos: 5, x_pos: 6, color: 'Black')
+    expect(piece1.check?).to eq(true)
+  end
 end

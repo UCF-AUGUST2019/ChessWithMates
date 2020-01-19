@@ -79,7 +79,7 @@ class Piece < ApplicationRecord
   end
 
   def move(goal_x, goal_y)
-    if move?(goal_x, goal_y) 
+    if move?(goal_x, goal_y)
       x_pos = goal_x
       y_pos = goal_y
       save!
@@ -92,5 +92,14 @@ class Piece < ApplicationRecord
   def capture
     self.update(captured: true)
   end
+
+  # def cheque?
+  #   # binding.pry
+  #   if self.color == 'Black'
+  #     Piece.find_by(game_id: game_id, color: 'White').move(x_pos, y_pos)
+  #   else
+  #     Piece.find_by(game_id: game_id, color: 'Black').move(x_pos, y_pos)
+  #   end
+  # end
 
 end
