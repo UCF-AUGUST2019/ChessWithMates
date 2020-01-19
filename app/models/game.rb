@@ -3,14 +3,21 @@ class Game < ApplicationRecord
   belongs_to :user, required: false
   has_many :pieces
   after_create :populate_board!
+  after_create :set_default_turn
 
-  def turn?
-    # white goes first at creation of game
+  def set_default_turn
+      update_attributes(turn: 0)
+  end
 
-    # don't allow other player to move if not their turn
-
-    # after player's move change turn
-
+  def change_turn
+    unless checkmate?
+      case pieces.move
+      when 'Invalid move. Try again: '
+        pieces.move
+      else
+        :turn +=1
+      end
+    end
   end
   
   def populate_board!
