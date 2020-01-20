@@ -53,4 +53,24 @@ class Game < ApplicationRecord
 
   end
 
+  def stalemate(player_id)
+    game.pieces.where(player_id: player_id) do |piece|
+      (1..8).each do |goal_x|
+        (1..8).each do |goal_y|
+          if piece.move(goal_x, goal_y) && piece.check?(goal_x, goal_y) == false
+            return true
+          end
+        end
+      end
+    end
+  end
+
+
+  def checkmate?(player_id)
+    king = King.where(player_id: player_id)
+    if king.check? && stalemate(player_id)
+      return true
+    end
+  end
+
 end
