@@ -46,4 +46,5 @@ FactoryBot.define do
   	black_id { 2 }
   	association :user
   end
+
 end

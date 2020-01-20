@@ -14,7 +14,7 @@ RSpec.describe Game, type: :model do
   describe "#set_default_turn" do
     it "after game create, set opening turn 0" do
       game = Game.create!
-      expect(game.turn).to eq(0)
+      expect(game.turn).to eq(1)
     end
   end
 

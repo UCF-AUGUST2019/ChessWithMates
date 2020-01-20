@@ -6,18 +6,7 @@ class Game < ApplicationRecord
   after_create :set_default_turn
 
   def set_default_turn
-      update_attributes(turn: 0)
-  end
-
-  def change_turn
-    unless checkmate?
-      case pieces.move
-      when 'Invalid move. Try again: '
-        pieces.move
-      else
-        :turn +=1
-      end
-    end
+      update_attributes(turn: 1)
   end
   
   def populate_board!

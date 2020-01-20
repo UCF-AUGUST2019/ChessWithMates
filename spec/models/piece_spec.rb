@@ -82,4 +82,10 @@ RSpec.describe Piece, type: :model do
     piece1.capture
     expect(piece1.captured).to eq(true)
   end
+
+  it 'should only allow one player to move according to their turn' do
+    game1 = FactoryBot.create(:game, turn: 1)
+    piece1 = FactoryBot.create(:piece, game: game1)
+    expect(piece1.can_move?).to eq('White Player can move.')
+  end
 end

@@ -1,6 +1,7 @@
 class Piece < ApplicationRecord
   belongs_to :user, required: false
   belongs_to :game, required: false
+  after_create :can_move?
 
 
   def horz?(goal_x, goal_y)
@@ -91,6 +92,23 @@ class Piece < ApplicationRecord
   # call capture on the piece to be captured.
   def capture
     self.update(captured: true)
+  end
+
+  def can_move?
+    # allow white_id to (move) if turn.odd?
+    if game.turn.odd?
+      return 'White Player can move.'
+      # white_id.move(goal_x, goal_y)
+    else
+      return 'Currently White Players Turn.'
+    end
+    # allow black_id to (move) if turn.even?
+    if game.turn.even?
+      return 'Black Player can move.'
+      # black_id.move(goal_x, goal_y)
+    else
+      return 'Currently Black Players Turn.'
+    end
   end
 
 end
