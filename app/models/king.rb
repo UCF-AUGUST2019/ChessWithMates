@@ -11,9 +11,14 @@ class King < Piece
 
   def check?
     if self.color == 'Black'
-      Piece.find_by(game_id: game_id, color: 'White').move(x_pos, y_pos)
+      Piece.where(game_id: game_id, color: 'White').each do |piece|
+      	return true if piece.move?(x_pos, y_pos)
+      end
     else
-      Piece.find_by(game_id: game_id, color: 'Black').move(x_pos, y_pos)
+      Piece.where(game_id: game_id, color: 'Black').each do |piece|
+      	return true if piece.move?(x_pos, y_pos)
+      end
     end
+    false
   end
 end

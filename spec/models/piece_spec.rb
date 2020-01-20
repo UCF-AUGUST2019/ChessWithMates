@@ -82,16 +82,4 @@ RSpec.describe Piece, type: :model do
     piece1.capture
     expect(piece1.captured).to eq(true)
   end
-
-  # # !CHECK?
-  # it 'checks if the king is in...check' do
-  # 	# user1 = FactoryBot.create(:user)
-  # 	# user2 = FactoryBot.create(:user)
-  #   # game1 = FactoryBot.create(:game)
-  #   piece1 = Piece.create(game_id: 1, player_id: 1, type: 'King', y_pos: 4, x_pos: 4, color: 'White')
-  #   piece2 = Piece.create(game_id: 1, player_id: 2, type: 'Queen', y_pos: 5, x_pos: 5, color: 'Black')
-  #   # piece1 = Piece.where(game_id: 1, player_id: 1, type: 'King').first
-  #   # piece2 = Piece.where(game_id: 1, player_id: 2, type: 'Queen').first
-  #   expect(piece1.cheque?).to eq(true)
-  # end
 end
