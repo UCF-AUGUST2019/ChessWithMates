@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   belongs_to :user, required: false
   has_many :pieces
   after_create :populate_board!
-  after_create :set_default_turn
+  # after_create :set_default_turn
 
   def set_default_turn
       update_attributes(turn: 1)

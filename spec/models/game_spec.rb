@@ -12,17 +12,11 @@ RSpec.describe Game, type: :model do
   end
 
   describe "#set_default_turn" do
-    it "after game create, set opening turn 0" do
+    it "after game create, set opening turn 1" do
       game = Game.create!
       expect(game.turn).to eq(1)
     end
   end
-
-  # describe "#change_turn" do
-  #   it "should only allow white player to move first at creation of game" do
-      
-  #   end
-  # end
 
   describe "#populate_board!" do
   	it "should add 32 pieces to the game" do

@@ -80,12 +80,17 @@ class Piece < ApplicationRecord
   end
 
   def move(goal_x, goal_y)
-    if move?(goal_x, goal_y) 
-      x_pos = goal_x
-      y_pos = goal_y
-      save!
+    if can_move? 
+      if move?(goal_x, goal_y) 
+        x_pos = goal_x
+        y_pos = goal_y
+        game.update_attributes(turn: game.turn + 1)
+        save!
+      else
+        return 'Invalid move. Try again: '
+      end
     else
-      return 'Invalid move. Try again: '
+      return 'Please wait for your turn.'
     end
   end
   
@@ -95,20 +100,8 @@ class Piece < ApplicationRecord
   end
 
   def can_move?
-    # allow white_id to (move) if turn.odd?
-    if game.turn.odd?
-      return 'White Player can move.'
-      # white_id.move(goal_x, goal_y)
-    else
-      return 'Currently White Players Turn.'
-    end
-    # allow black_id to (move) if turn.even?
-    if game.turn.even?
-      return 'Black Player can move.'
-      # black_id.move(goal_x, goal_y)
-    else
-      return 'Currently Black Players Turn.'
-    end
+    return true if game.turn.odd? && player_id == game.white_id
+    return true if game.turn.even? && player_id == game.black_id
+    false
   end
-
 end
