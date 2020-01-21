@@ -81,12 +81,12 @@ class Piece < ApplicationRecord
     current_x = x_pos
     current_y = y_pos
     if move?(goal_x, goal_y)
-      update_attributes(x_pos: goal_x, y_pos: goal_y)
+      update_attributes(x_pos: goal_x, y_pos: goal_y, num_moves: num_moves + 1)
     else
       return 'Invalid move. Try again: '
     end
     if in_check_after_move?
-      update_attributes(x_pos: current_x, y_pos: current_y)
+      update_attributes(x_pos: current_x, y_pos: current_y, num_moves: num_moves - 1)
       return 'Invalid move. King still in check: '
     end
     update_attributes(has_moved: true) if has_moved == false
