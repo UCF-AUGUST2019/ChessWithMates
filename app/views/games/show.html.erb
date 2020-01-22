@@ -1,3 +1,6 @@
+<div id="gamestats">
+	<%= link_to 'Concede/Forfeit', game_path(@game), class: 'btn btn-danger', method: :delete %>
+</div>
 <div id="show_game">
 	<div class="chessboard">
 		<% (1..8).each do |y| %>
