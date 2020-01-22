@@ -5,7 +5,7 @@ RSpec.describe Knight, type: :model do
     it "should move validly" do
       game1 = FactoryBot.create(:game)
       FactoryBot.create(:piece, game: game1, type: 'Knight')
-      piece1 = Piece.where(game: game1, type: 'Knight').first
+      piece1 = Piece.where(game: game1, type: 'Knight').last
       expect(piece1.move?(5, 6)).to eq(true)
       expect(piece1.move?(6, 5)).to eq(true)
       expect(piece1.move?(5, 2)).to eq(true)

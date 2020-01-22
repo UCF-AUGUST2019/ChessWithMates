@@ -8,7 +8,7 @@ RSpec.describe King, type: :model do
   it 'checks if the entered move is valid and then moves the king' do
     game1 = FactoryBot.create(:game)
     FactoryBot.create(:piece, game: game1, type: 'King')
-    piece1 = Piece.where(game: game1, type: 'King').first
+    piece1 = Piece.where(game: game1, type: 'King').last
     expect(piece1.move(4, 5)).to eq(true)
   end
 end
