@@ -12,8 +12,8 @@ class Pawn < Piece
 			if goal_x != self.x_pos && op_piece
         return (goal_x - self.x_pos).abs == 1 && (goal_y - self.y_pos).abs == 1 && goal_y < self.y_pos if color == 'Black' unless obstructed?(goal_x, goal_y)
         return (goal_x - self.x_pos).abs == 1 && (goal_y - self.y_pos).abs == 1 && goal_y > self.y_pos if color == 'White' unless obstructed?(goal_x, goal_y)
-    	elsif op_piece == false
-        return 'Invalid move. Can only move diagonally onto opposing pieces'
+    	elsif goal_x != self.x_pos && op_piece == false
+        return false
       else
 				return (goal_y - self.y_pos).abs <= 2 && goal_y < self.y_pos if color == 'Black' unless obstructed?(goal_x, goal_y)
         return (goal_y - self.y_pos).abs <= 2 && goal_y > self.y_pos if color == 'White' unless obstructed?(goal_x, goal_y)
@@ -24,8 +24,8 @@ class Pawn < Piece
       if goal_x != self.x_pos && op_piece
         return (goal_x - self.x_pos).abs == 1 && (goal_y - self.y_pos).abs == 1 && goal_y < self.y_pos if color == 'Black' unless obstructed?(goal_x, goal_y)
         return (goal_x - self.x_pos).abs == 1 && (goal_y - self.y_pos).abs == 1 && goal_y > self.y_pos if color == 'White' unless obstructed?(goal_x, goal_y)
-	    elsif op_piece == false
-        return 'Invalid move. Can only move diagonally onto opposing pieces'
+	    elsif goal_x != self.x_pos && op_piece == false
+        return false
       else
         return (goal_y - self.y_pos).abs <= 1 && goal_y < self.y_pos if color == 'Black' unless obstructed?(goal_x, goal_y)
         return (goal_y - self.y_pos).abs <= 1 && goal_y > self.y_pos if color == 'White' unless obstructed?(goal_x, goal_y)

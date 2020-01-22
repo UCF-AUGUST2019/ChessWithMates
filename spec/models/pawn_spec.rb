@@ -14,6 +14,7 @@ RSpec.describe Pawn, type: :model do
   end
   it 'checks if the entered move is moving backwards and returns invalid' do
     piece1 = Pawn.create(game_id: 1, player_id: 1, x_pos: 4, y_pos: 4, color: 'Black', num_moves: 1)
+    King.create(game_id: 1, player_id: 1, x_pos: 3, y_pos: 1, color: 'Black')
     expect(piece1.move(5, 5)).to eq('Invalid move. Try again: ')
     expect(piece1.move(4, 5)).to eq('Invalid move. Try again: ')
   end
