@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Queen, type: :model do
   # !MOVE?
   it 'checks if desired move is horz, vert or diag' do
-    piece1 = Queen.create(game_id: 1, player_id: 1, x_pos: 4, y_pos: 4, color: 'Black')
+    piece1 = Queen.create(game_id: 1, player_id: 1, x_pos: 4, y_pos: 4, color: 'Black', num_moves: 0)
     expect(piece1.move?(4, 7)).to eq(true)
     expect(piece1.move?(7, 4)).to eq(true)
     expect(piece1.move?(1, 7)).to eq(true)

@@ -37,7 +37,8 @@ class King < Piece
   				return 'Cannot castle through, or into check'
   			end
   		end
-  		rook.update_attributes(x_pos: rook_x + (dist * direction) - 2, y_pos: rook_y, has_moved: true)
+  		rook.update_attributes(x_pos: rook_x + (dist * direction) - 2, y_pos: rook_y, has_moved: true, num_moves: num_moves + 1)
+      update_attributes(num_moves: num_moves + 1)
   	end
   end
 end
