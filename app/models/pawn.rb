@@ -31,6 +31,7 @@ class Pawn < Piece
   
   # pawns can promote when they make it to the other
   # player's starting area
+  # will have to add js for a dropdown of possible pieces
   def promote(newType)
     # we check that the y_pos is 1 or 8 because
     # a pawn should only be able to be there legally
