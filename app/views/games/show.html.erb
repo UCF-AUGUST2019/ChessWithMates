@@ -1,3 +1,15 @@
+<div id="gamestats">
+	<h3 id="game_name">Game Name:</h3>
+		<%= @game.name %>
+	<h3 id="game_wp">White Player:</h3>
+		<%= @game.white_player.email %>
+	<h3 id="game_bp">Black Player:</h3>
+		<%= @game.black_player&.email %>
+	<h3 id="game_turn">Turn:</h3>
+		<%= @game.turn %>
+	<h3 id="game_quit">Concede:</h3>
+		<%= link_to 'Concede/Forfeit', game_path(@game), class: 'btn btn-danger', method: :delete %>
+</div>
 <div id="show_game">
 	<div class="chessboard">
 		<% (1..8).each do |y| %>
@@ -15,20 +27,5 @@
 				<% end %>
 			</div>
 		<% end %>
-	</div>
-	<div class="gamestats">
-		<h3>Game Name:</h3>
-			<%= @game.name %>
-			<br />
-		<h3>White:</h3>
-			<%= @game.white_id %>
-			<br />
-		<h3>Black:</h3>
-			<%= @game.black_id %>
-			<br />
-		<h3>Turn:</h3>
-			<%= @game.turn %>
-			<%= @game.turn.odd? %>
-			<%= @game.turn.even? %>
 	</div>
 </div>

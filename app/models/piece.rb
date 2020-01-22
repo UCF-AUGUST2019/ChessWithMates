@@ -1,8 +1,6 @@
 class Piece < ApplicationRecord
   belongs_to :user, required: false
   belongs_to :game, required: false
-  after_create :can_move?
-
 
   def horz?(goal_x, goal_y)
     y_pos == goal_y && x_pos != goal_x
@@ -84,7 +82,7 @@ class Piece < ApplicationRecord
       if move?(goal_x, goal_y) 
         x_pos = goal_x
         y_pos = goal_y
-        game.update_attributes(turn: game.turn + 1)
+        game.update_attributes!(turn: game.turn + 1)
         save!
       else
         return 'Invalid move. Try again: '
