@@ -6,11 +6,10 @@ RSpec.describe Bishop, type: :model do
 
   describe "Valid moves" do
     it "should move validly" do
-      user1 = FactoryBot.create(:user)
-      game1 = FactoryBot.create(:game)
-      FactoryBot.create(:piece, game: game1, player_id: user1.id, type: 'Bishop')
-      piece1 = Piece.where(game: game1, player_id: user1.id, type: 'Bishop').first
-      expect(piece1.move(1, 1)).to eq(true)
+      piece1 = Bishop.create(game_id: 1, player_id: 1, x_pos: 4, y_pos: 4, color: 'White')
+      King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 2, color: 'White')
+      Queen.create(game_id: 1, player_id: 2, y_pos: 6, x_pos: 2, color: 'Black')
+      expect(piece1.move(2, 2)).to eq(true)
     end
   end
 end

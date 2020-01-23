@@ -13,6 +13,8 @@ ENV['RAILS_ENV'] ||= 'test'
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+ENV['RAILS_ENV'] ||= 'test'
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rails/all'
 require 'rspec/rails'

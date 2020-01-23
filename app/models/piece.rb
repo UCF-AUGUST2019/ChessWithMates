@@ -54,15 +54,9 @@ class Piece < ApplicationRecord
     dist_y = goal_y - y_pos
     dist_x = goal_x - x_pos
     (1..dist_x.abs-1).each do |i|
-      if dist_x < 0 && dist_y < 0
-        return true if Piece.where(x_pos: x_pos - i, y_pos: y_pos - i, game_id: game_id).count != 0
-      elsif dist_x < 0 && dist_y > 0
-        return true if Piece.where(x_pos: x_pos - i, y_pos: y_pos + i, game_id: game_id).count != 0
-      elsif dist_x > 0 && dist_y < 0
-        return true if Piece.where(x_pos: x_pos + i, y_pos: y_pos - i, game_id: game_id).count != 0
-      else
-        return true if Piece.where(x_pos: x_pos + i, y_pos: y_pos + i, game_id: game_id).count != 0
-      end
+      dir_x = dist_x < 0 ? -1 : 1
+      dir_y = dist_y < 0 ? -1 : 1
+      return true if Piece.where(x_pos: x_pos + (i * dir_x), y_pos: y_pos + (i * dir_y), game_id: game_id).present?
     end
     false
   end
@@ -78,28 +72,28 @@ class Piece < ApplicationRecord
     
   end
 
+  def in_check_after_move?
+    return true if Piece.find_by(game_id: game_id, color: self.color, type: 'King').check?
+    false
+  end
+
   def move(goal_x, goal_y)
+    current_x = x_pos
+    current_y = y_pos
     if move?(goal_x, goal_y)
-      x_pos = goal_x
-      y_pos = goal_y
-      save!
+      update_attributes(x_pos: goal_x, y_pos: goal_y)
     else
       return 'Invalid move. Try again: '
     end
+    if in_check_after_move?
+      update_attributes(x_pos: current_x, y_pos: current_y)
+      return 'Invalid move. King still in check: '
+    end
+    true
   end
   
   # call capture on the piece to be captured.
   def capture
     self.update(captured: true)
   end
-
-  # def cheque?
-  #   # binding.pry
-  #   if self.color == 'Black'
-  #     Piece.find_by(game_id: game_id, color: 'White').move(x_pos, y_pos)
-  #   else
-  #     Piece.find_by(game_id: game_id, color: 'Black').move(x_pos, y_pos)
-  #   end
-  # end
-
 end
