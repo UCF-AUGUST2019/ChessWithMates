@@ -6,8 +6,9 @@ RSpec.describe King, type: :model do
   end
  	# !MOVE?
   it 'checks if the entered move is valid and then moves the king' do
-    piece1 = King.create(game_id: 1, player_id: 1, y_pos: 4, x_pos: 4, color: 'White', num_moves: 0)
-    piece2 = Queen.create(game_id: 1, player_id: 2, y_pos: 6, x_pos: 6, color: 'Black')
+    game1 = Game.create(white_id: 1, black_id: 2)
+    piece1 = King.create(game: game1, player_id: game1.white_id, y_pos: 4, x_pos: 4, color: 'White', num_moves: 0)
+    piece2 = Queen.create(game: game1, player_id: game1.black_id, y_pos: 6, x_pos: 6, color: 'Black')
 
     expect(piece1.move(4, 5)).to eq(true)
   end

@@ -90,6 +90,9 @@ class Piece < ApplicationRecord
       if move?(goal_x, goal_y)
         update_attributes(x_pos: goal_x, y_pos: goal_y, num_moves: num_moves + 1)
         op_piece.capture if op_piece
+        game.update_attributes(turn: game.turn + 1)
+      else
+        return 'Invalid move. Try again: '
       end
     
       if in_check_after_move?
