@@ -6,7 +6,7 @@ RSpec.describe King, type: :model do
   end
  	# !MOVE?
   it 'checks if the entered move is valid and then moves the king' do
-    piece1 = King.create(game_id: 1, player_id: 1, y_pos: 4, x_pos: 4, color: 'White')
+    piece1 = King.create(game_id: 1, player_id: 1, y_pos: 4, x_pos: 4, color: 'White', num_moves: 0)
     piece2 = Queen.create(game_id: 1, player_id: 2, y_pos: 6, x_pos: 6, color: 'Black')
     expect(piece1.move(4, 5)).to eq(true)
   end
@@ -18,14 +18,14 @@ RSpec.describe King, type: :model do
   end
   # !CASTLING
   it 'checks if you can queenside castle' do
-  	piece1 = King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 5, color: 'White', has_moved: false)
-  	Rook.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 1, color: 'White', has_moved: false)
+  	piece1 = King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 5, color: 'White', has_moved: false, num_moves: 0)
+  	Rook.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 1, color: 'White', has_moved: false, num_moves: 0)
   	piece1.castle(1, 1)
   	expect(piece1.x_pos).to eq(3)
   end
   it 'checks if you can kingside castle' do
-  	piece1 = King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 5, color: 'White', has_moved: false)
-  	Rook.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 8, color: 'White', has_moved: false)
+  	piece1 = King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 5, color: 'White', has_moved: false, num_moves: 0)
+  	Rook.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 8, color: 'White', has_moved: false, num_moves: 0)
   	piece1.castle(8, 1)
   	expect(piece1.x_pos).to eq(7)
   end

@@ -6,7 +6,7 @@ RSpec.describe Bishop, type: :model do
 
   describe "Valid moves" do
     it "should move validly" do
-      piece1 = Bishop.create(game_id: 1, player_id: 1, x_pos: 4, y_pos: 4, color: 'White')
+      piece1 = Bishop.create(game_id: 1, player_id: 1, x_pos: 4, y_pos: 4, color: 'White', num_moves: 0)
       King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 2, color: 'White')
       Queen.create(game_id: 1, player_id: 2, y_pos: 6, x_pos: 2, color: 'Black')
       expect(piece1.move(2, 2)).to eq(true)

@@ -78,15 +78,24 @@ class Piece < ApplicationRecord
   end
 
   def move(goal_x, goal_y)
+    # we keep the current position in case the move is invalid
     current_x = x_pos
     current_y = y_pos
+    current__moves = num_moves
+    # we check if the goal has a piece that's occupied by an opposing piece
+    op_color = color == 'White' ? 'Black' : 'White'
+    op_piece = Piece.find_by(x_pos: goal_x, y_pos: goal_y, color: op_color)
+    op_piece == nil ? op_piece = false : op_piece
+    
     if move?(goal_x, goal_y)
-      update_attributes(x_pos: goal_x, y_pos: goal_y)
+      update_attributes(x_pos: goal_x, y_pos: goal_y, num_moves: num_moves + 1)
+      op_piece.capture if op_piece
     else
       return 'Invalid move. Try again: '
     end
     if in_check_after_move?
-      update_attributes(x_pos: current_x, y_pos: current_y)
+      update_attributes(x_pos: current_x, y_pos: current_y, num_moves: current__moves)
+      op_piece.update_attributes(captured: false)
       return 'Invalid move. King still in check: '
     end
     update_attributes(has_moved: true) if has_moved == false
@@ -95,6 +104,6 @@ class Piece < ApplicationRecord
   
   # call capture on the piece to be captured.
   def capture
-    self.update(captured: true)
+    self.update_attributes(captured: true)
   end
 end
