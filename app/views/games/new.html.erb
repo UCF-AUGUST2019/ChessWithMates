@@ -7,6 +7,6 @@
     <%= f.input :name, label: false, placeholder: 'Enter Game Here' %>
     <%= f.hidden_field :white_id, value: current_user.id %>
     <br />
-    <%= f.submit "Create" %>
+    <%= f.submit "Create", class: 'btn btn-primary' %>
   <% end %>
 </div>

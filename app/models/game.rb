@@ -1,9 +1,16 @@
 class Game < ApplicationRecord
   scope :available, -> { where(black_id: nil) }
   belongs_to :user, required: false
+  belongs_to :white_player, class_name: 'User', foreign_key: 'white_id', optional: true
+  belongs_to :black_player, class_name: 'User', foreign_key: 'black_id', optional: true
   has_many :pieces
   after_create :populate_board!
+  after_create :set_default_turn
 
+  def set_default_turn
+      update_attributes(turn: 1)
+  end
+  
   def populate_board!
     # WHITE PIECES
 
