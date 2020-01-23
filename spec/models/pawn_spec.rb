@@ -44,4 +44,11 @@ RSpec.describe Pawn, type: :model do
     piece2 = Piece.find_by(game_id: 2, player_id: 3, x_pos: 3, y_pos: 3, color: 'White')
     expect(piece2.captured).to eq(true)
   end
+  # !PROMOTION
+  it 'promotes a pawn to a new piece type' do
+    Piece.create(player_id: 2, type: 'Pawn', x_pos: 4, y_pos: 8)
+    piece1 = Piece.find_by(x_pos: 4, y_pos: 8)
+    piece1.promote('Queen')
+    expect(piece1.type).to eq('Queen')
+  end
 end

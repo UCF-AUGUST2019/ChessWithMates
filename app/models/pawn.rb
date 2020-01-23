@@ -38,15 +38,28 @@ class Pawn < Piece
   	'fa fa-chess-pawn'
   end
   
+
   def en_passant
     end_y_pos = color == 'Black' ? 3 : 6
     piece = Piece.order(:updated_at).last
     if piece.type == 'Pawn' && (piece.x_pos-x_pos).abs == 1 && piece.y_pos == y_pos && piece.num_moves == 1
       self.update_attributes(x_pos: piece.x_pos, y_pos: end_y_pos)
       piece.update_attributes(captured: true)
-      #need to figure out why the test doesn't seem to set the captured piece to captured
     else
       return 'En Passant is not available.'
+    end
+  end
+
+  # pawns can promote when they make it to the other
+  # player's starting area
+  # will have to add js for a dropdown of possible pieces
+  def promote(newType)
+    # we check that the y_pos is 1 or 8 because
+    # a pawn should only be able to be there legally
+    # by crossing the board
+    if self.y_pos == 1 || self.y_pos == 8
+      # sets the type of the pawn to what's entered by the user
+      self.update(type: newType)
     end
   end
 
