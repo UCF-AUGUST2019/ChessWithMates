@@ -1,3 +1,15 @@
+#gamestats {
+	text-align: center;
+}
+
+#game_name,
+#game_wp,
+#game_bp,
+#game_turn,
+#game_quit {
+	display: inline-block;
+}
+
 #show_game {
 	background-image: url('game_bg.png');
 	padding: 50px;
@@ -34,7 +46,6 @@
 	background-image: url("black_space.png");
 }
 
-
 .gamehome-header {
 	text-align: center;
 }
@@ -56,9 +67,9 @@
 	font-size: 50px;
 	margin-top: 10px;
 	color: red;
-	text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: black;
+	text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: black;
 }

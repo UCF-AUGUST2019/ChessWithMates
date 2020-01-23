@@ -1,12 +1,21 @@
 <div id="gamestats">
-	<%= link_to 'Concede/Forfeit', game_path(@game), class: 'btn btn-danger', method: :delete %>
+	<h3 id="game_name">Game Name:</h3>
+		<%= @game.name %>
+	<h3 id="game_wp">White Player:</h3>
+		<%= @game.white_player.email %>
+	<h3 id="game_bp">Black Player:</h3>
+		<%= @game.black_player&.email %>
+	<h3 id="game_turn">Turn:</h3>
+		<%= @game.turn %>
+	<h3 id="game_quit">Concede:</h3>
+		<%= link_to 'Concede/Forfeit', game_path(@game), class: 'btn btn-danger', method: :delete %>
 </div>
 <div id="show_game">
 	<div class="chessboard">
 		<% (1..8).each do |y| %>
 			<div class="row">
 				<% (1..8).each do |x| %>
-					<div class="<%= (x + y).even? ? 'black' : 'white' %> space">
+					<div class="<%= (x + y).odd? ? 'black' : 'white' %> space">
 						<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
 							<% if piece.player_id == @game.white_id %>
 								<span class="<%= piece.render %> white piece"></span>

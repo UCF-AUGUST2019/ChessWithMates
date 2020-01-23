@@ -2,7 +2,6 @@ class Piece < ApplicationRecord
   belongs_to :user, required: false
   belongs_to :game, required: false
 
-
   def horz?(goal_x, goal_y)
     y_pos == goal_y && x_pos != goal_x
   end
@@ -54,15 +53,9 @@ class Piece < ApplicationRecord
     dist_y = goal_y - y_pos
     dist_x = goal_x - x_pos
     (1..dist_x.abs-1).each do |i|
-      if dist_x < 0 && dist_y < 0
-        return true if Piece.where(x_pos: x_pos - i, y_pos: y_pos - i, game_id: game_id).count != 0
-      elsif dist_x < 0 && dist_y > 0
-        return true if Piece.where(x_pos: x_pos - i, y_pos: y_pos + i, game_id: game_id).count != 0
-      elsif dist_x > 0 && dist_y < 0
-        return true if Piece.where(x_pos: x_pos + i, y_pos: y_pos - i, game_id: game_id).count != 0
-      else
-        return true if Piece.where(x_pos: x_pos + i, y_pos: y_pos + i, game_id: game_id).count != 0
-      end
+      dir_x = dist_x < 0 ? -1 : 1
+      dir_y = dist_y < 0 ? -1 : 1
+      return true if Piece.where(x_pos: x_pos + (i * dir_x), y_pos: y_pos + (i * dir_y), game_id: game_id).present?
     end
     false
   end
@@ -78,28 +71,51 @@ class Piece < ApplicationRecord
     
   end
 
+  def in_check_after_move?
+    return true if Piece.find_by(game_id: game_id, color: self.color, type: 'King').check?
+    false
+  end
+
   def move(goal_x, goal_y)
-    if move?(goal_x, goal_y)
-      x_pos = goal_x
-      y_pos = goal_y
-      save!
+    if can_move? 
+    # we keep the current position in case the move is invalid
+      current_x = x_pos
+      current_y = y_pos
+      current__moves = num_moves
+      # we check if the goal has a piece that's occupied by an opposing piece
+      op_color = color == 'White' ? 'Black' : 'White'
+      op_piece = Piece.find_by(x_pos: goal_x, y_pos: goal_y, color: op_color)
+      op_piece == nil ? op_piece = false : op_piece
+
+      if move?(goal_x, goal_y)
+        update_attributes(x_pos: goal_x, y_pos: goal_y, num_moves: num_moves + 1)
+        op_piece.capture if op_piece
+        game.update_attributes(turn: game.turn + 1)
+      else
+        return 'Invalid move. Try again: '
+      end
+    
+      if in_check_after_move?
+        update_attributes(x_pos: current_x, y_pos: current_y, num_moves: current__moves)
+        op_piece.update_attributes(captured: false) if op_piece
+        return 'Invalid move. King still in check: '
+      end
+      update_attributes(has_moved: true) if has_moved == false
+      true
     else
-      return 'Invalid move. Try again: '
+      return 'Please wait for your turn.'
     end
   end
   
   # call capture on the piece to be captured.
   def capture
-    self.update(captured: true)
+    self.update_attributes(captured: true)
   end
 
-  # def cheque?
-  #   # binding.pry
-  #   if self.color == 'Black'
-  #     Piece.find_by(game_id: game_id, color: 'White').move(x_pos, y_pos)
-  #   else
-  #     Piece.find_by(game_id: game_id, color: 'Black').move(x_pos, y_pos)
-  #   end
-  # end
+  def can_move?
+    return true if game.turn.odd? && player_id == game.white_id
+    return true if game.turn.even? && player_id == game.black_id
+    false
+  end
 
 end
