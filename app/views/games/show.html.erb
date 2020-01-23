@@ -15,7 +15,7 @@
 		<% (1..8).each do |y| %>
 			<div class="row">
 				<% (1..8).each do |x| %>
-					<div class="<%= (x + y).even? ? 'black' : 'white' %> space">
+					<div class="<%= (x + y).odd? ? 'black' : 'white' %> space">
 						<% @game.pieces.where(x_pos: x, y_pos: y).each do |piece| %>
 							<% if piece.player_id == @game.white_id %>
 								<span class="<%= piece.render %> white piece"></span>

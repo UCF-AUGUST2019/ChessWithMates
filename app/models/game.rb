@@ -30,10 +30,13 @@ class Game < ApplicationRecord
     	Bishop.create(x_pos: f, y_pos: 8, game_id: id, player_id: white_id)
     end
 
-    King.create(x_pos: 4, y_pos: 8, game_id: id, player_id: white_id)
+     Queen.create(x_pos: 4, y_pos: 8, game_id: id, player_id: white_id)   
 
 
-    Queen.create(x_pos: 5, y_pos: 8, game_id: id, player_id: white_id)
+     King.create(x_pos: 5, y_pos: 8, game_id: id, player_id: white_id)
+
+
+
 
     # BLACK PIECES 
 
@@ -53,10 +56,11 @@ class Game < ApplicationRecord
     	Bishop.create(x_pos: f, y_pos: 1, game_id: id, player_id: black_id)
     end
 
-    King.create(x_pos: 4, y_pos: 1, game_id: id, player_id: black_id)
+    Queen.create(x_pos: 4, y_pos: 1, game_id: id, player_id: black_id)
+  
+    King.create(x_pos: 5, y_pos: 1, game_id: id, player_id: black_id)
 
 
-    Queen.create(x_pos: 5, y_pos: 1, game_id: id, player_id: black_id)
 
   end
 
