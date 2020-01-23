@@ -53,11 +53,25 @@ class Game < ApplicationRecord
 
   end
 
-  def stalemate(player_id)
+  def stalemate?(player_id)
+    king = game.pieces.find_by(type: 'King', player_id: player_id)
     game.pieces.where(player_id: player_id) do |piece|
       (1..8).each do |goal_x|
         (1..8).each do |goal_y|
-          if piece.move(goal_x, goal_y) && piece.check?(goal_x, goal_y) == false
+          if piece.obstructed?(goal_x, goal_y) == true && king.check?(goal_x, goal_y) == false
+            return true
+          end
+        end
+      end
+    end
+  end
+
+  def stalemate_2?(player_id)
+    king = game.pieces.find_by(type: 'King', player_id: player_id)
+    player_pieces = game.pieces.where(player_id: player_id)
+      (1..8).each do |goal_x|
+        (1..8).each do |goal_y|
+          if player_pieces.invalid?(goal_x, goal_y) == false && king.check?(goal_x, goal_y) == true
             return true
           end
         end
@@ -67,8 +81,8 @@ class Game < ApplicationRecord
 
 
   def checkmate?(player_id)
-    king = King.where(player_id: player_id)
-    if king.check? && stalemate(player_id)
+    king = game.pieces.find_by(type: 'King', player_id: player_id)
+    if king.check? && stalemate?(player_id)
       return true
     end
   end

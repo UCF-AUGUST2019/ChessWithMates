@@ -16,4 +16,5 @@ class King < Piece
       Piece.find_by(game_id: game_id, color: 'Black').move(x_pos, y_pos)
     end
   end
+
 end
