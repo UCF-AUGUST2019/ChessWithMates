@@ -16,4 +16,33 @@ RSpec.describe King, type: :model do
     piece2 = Knight.create(game_id: 1, player_id: 2, y_pos: 5, x_pos: 6, color: 'Black')
     expect(piece1.check?).to eq(true)
   end
+  # !CASTLING
+  it 'checks if you can queenside castle' do
+  	piece1 = King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 5, color: 'White', has_moved: false)
+  	Rook.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 1, color: 'White', has_moved: false)
+  	piece1.castle(1, 1)
+  	expect(piece1.x_pos).to eq(3)
+  end
+  it 'checks if you can kingside castle' do
+  	piece1 = King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 5, color: 'White', has_moved: false)
+  	Rook.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 8, color: 'White', has_moved: false)
+  	piece1.castle(8, 1)
+  	expect(piece1.x_pos).to eq(7)
+  end
+  it 'checks if you cannot castle because you would be in check in transit' do
+  	piece1 = King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 5, color: 'White', has_moved: false)
+  	Rook.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 8, color: 'White', has_moved: false)
+  	Rook.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 1, color: 'White', has_moved: false)
+  	Rook.create(game_id: 1, player_id: 2, y_pos: 5, x_pos: 6, color: 'Black')
+  	Rook.create(game_id: 1, player_id: 2, y_pos: 5, x_pos: 4, color: 'Black')
+  	Bishop.create(game_id: 1, player_id: 2, y_pos: 3, x_pos: 5, color: 'Black')
+  	expect(piece1.castle(8, 1)).to eq('Cannot castle through, or into check')
+  	expect(piece1.castle(1, 1)).to eq('Cannot castle through, or into check')
+  end
+  it 'checks if you cannot castle because you are currently in check' do
+  	piece1 = King.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 5, color: 'White', has_moved: false)
+  	Rook.create(game_id: 1, player_id: 1, y_pos: 1, x_pos: 8, color: 'White', has_moved: false)
+  	Queen.create(game_id: 1, player_id: 2, y_pos: 5, x_pos: 5, color: 'Black')
+  	expect(piece1.castle(8, 1)).to eq('Cannot castle while in check')
+  end
 end

@@ -89,6 +89,7 @@ class Piece < ApplicationRecord
       update_attributes(x_pos: current_x, y_pos: current_y)
       return 'Invalid move. King still in check: '
     end
+    update_attributes(has_moved: true) if has_moved == false
     true
   end
   
