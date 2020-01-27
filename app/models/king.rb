@@ -41,4 +41,5 @@ class King < Piece
       update_attributes(num_moves: num_moves + 1)
   	end
   end
+
 end
