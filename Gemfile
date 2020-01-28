@@ -79,5 +79,5 @@ gem 'devise'
 
 # simple form for CRUD model
 gem 'simple_form'
-
+gem 'jquery-rails'
 gem 'font_awesome5_rails'

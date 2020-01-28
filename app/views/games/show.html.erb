@@ -21,7 +21,17 @@
 		's turn...
 	</h3>
 	<br />
-	<%= link_to 'Concede/Forfeit', game_path(@game), class: 'btn btn-danger', method: :delete %>
+
+<script>
+	$(document).ready(function(){
+		$(".button").click(function(){
+			alert('concede button clicked!');
+		});
+	});
+</script>
+
+	<%= link_to 'concede', concede_game_path(@game), class: 'button btn btn-danger', user_id: current_user, method: :put, data: { confirm: 'Are you sure you want to Concede to defeat?' } %>
+
 </div>
 <div id="show_game">
 	<div class="chessboard">
