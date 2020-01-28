@@ -22,10 +22,10 @@ class GamesController < ApplicationController
 
   def concede
     @game = Game.find(params[:id])
-    if current_user.id == :white_id
-      @game.update_attributes(winner: :black_id)
+    if current_user.id == @game.white_id
+      @game.update_attributes(winner: @game.black_id)
     else
-      @game.update_attributes(winner: :white_id)
+      @game.update_attributes(winner: @game.white_id)
     end
     @game.update_attributes(game_over: true)
     redirect_to games_path
