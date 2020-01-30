@@ -19,16 +19,13 @@
 			<%= @game.black_player&.username %>
 		<% end %>
 		's turn...
+		<br />
+		<br />
+		<% if @game.game_over == true %>
+			Winner: <%= @game.winner %>
+		<% end %>
 	</h3>
 	<br />
-
-<script>
-	$(document).ready(function(){
-		$(".button").click(function(){
-			alert('concede button clicked!');
-		});
-	});
-</script>
 
 	<%= link_to 'concede', concede_game_path(@game), class: 'button btn btn-danger', user_id: current_user, method: :put, data: { confirm: 'Are you sure you want to Concede to defeat?' } %>
 
