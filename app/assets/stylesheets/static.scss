@@ -6,20 +6,18 @@ html {
 	height: 100%;
 }
 
-.hero-image {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("banner.jpg");
-	height: 80%;
+.hero-text {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero_2.jpg");
+	height: 400px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: relative;
+	text-align: center;
+	color: white;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
 }
 
-.hero-text {
-	text-align: center;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: white;
+.hero-text h1 {
+	text-shadow: 1px 1px 1px black;
 }

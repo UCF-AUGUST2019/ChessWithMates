@@ -1,13 +1,20 @@
-
-<div class="hero-image">
   <div class="hero-text">
-    <h1 class="hero-header">Where the Pros come to Play!</h1>
-    <br />
-    <h3 class="hero-welcome">Welcome 
+    <br /><br /><br />
+    <h1>
       <% if current_user.present? %>
-        <%= current_user.username %>
+        Welcome <%= current_user.username %>.
+      <% else %>
+        Welcome to Chess with Mates.
       <% end %>
-     to ChessApp!</h3>
+    </h1>
     <br />
+    <h1>
+      <strong>
+        Are you up for the challenge?
+      </strong>
+    </h1>
+    <br />
+      <%= link_to 'Find a Game', games_path, class: 'btn btn-lg btn-primary' %>
+      <br /><br />
+      <%= link_to 'Create a Game', new_game_path, class: 'btn btn-lg btn-primary' %>
   </div>
-</div>

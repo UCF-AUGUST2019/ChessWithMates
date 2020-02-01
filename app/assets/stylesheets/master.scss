@@ -1,10 +1,12 @@
 @import "bootstrap";
 @import 'font_awesome5_webfont';
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600|Lobster&display=swap');
 
 .navbar {
-	background-color: lavender;
+	background: image_url('nav_bg.png');
 	box-shadow: -2px 0.5px 5px grey;
 }
+
 .navbar a {
 	color: black;
 }
@@ -21,4 +23,34 @@
 	border: 1px solid #ccc;
 	border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
 	padding: 10px;
+}
+
+.title {
+	font-size: 25px;
+	display: inline;
+	font-family: 'Lobster', cursive;
+	color: darkred;
+	text-shadow: 1px 0.5px 0.5px lightgray;
+}
+
+.logo {
+	text-shadow: 1px 0.5px 0.5px lightgray;
+	padding-bottom: 10px;
+}
+
+.with {
+	margin-left: -2px;
+	margin-right: -3px;
+}
+
+.btn-primary {
+	background-color: whitesmoke;
+	color: black;
+	border-color: black;
+	text-shadow: 0;
+}
+
+.btn:hover {
+	background-color: gray;
+	border-color: black;
 }
