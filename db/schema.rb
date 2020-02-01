@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_26_010551) do
+ActiveRecord::Schema.define(version: 2020_01_26_175448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 2020_01_26_010551) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.boolean "game_over"
+    t.integer "winner"
+    t.index ["game_over"], name: "index_games_on_game_over"
+    t.index ["winner"], name: "index_games_on_winner"
   end
 
   create_table "pieces", force: :cascade do |t|
@@ -53,7 +57,9 @@ ActiveRecord::Schema.define(version: 2020_01_26_010551) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.integer "num_wins"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["num_wins"], name: "index_users_on_num_wins"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

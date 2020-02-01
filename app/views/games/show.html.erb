@@ -1,14 +1,34 @@
 <div id="gamestats">
-	<%# <h3 id="game_name">Game Name:</h3> %>
-		<%# <%= @game.name %> 
-	<%# <h3 id="game_wp">White Player:</h3> %>
-		<%# <%= @game.white_player.email %>
-	<%# <h3 id="game_bp">Black Player:</h3> %>
-		<%# <%= @game.black_player&.email %>
-	<%# <h3 id="game_turn">Turn:</h3> %>
-		<%# <%= @game.turn %>
-	<%# <h3 id="game_quit">Concede:</h3> %>
-		<%= link_to 'Concede/Forfeit', game_path(@game), class: 'btn btn-danger', method: :delete %>
+	<h1>
+		<%= @game.name %>
+	</h1>
+	<br />
+	<h3> 
+		White Player:
+		<%= @game.white_player.username %>
+		<br />
+		<br />
+		Black Player:
+		<%= @game.black_player&.username %>
+	</h3> 
+	<br />
+	<h3>
+		<% if @game.turn.odd? %>
+			<%= @game.white_player.username %>
+		<% else %>
+			<%= @game.black_player&.username %>
+		<% end %>
+		's turn...
+		<br />
+		<br />
+		<% if @game.game_over == true %>
+			Winner: <%= @game.winner %>
+		<% end %>
+	</h3>
+	<br />
+
+	<%= link_to 'concede', concede_game_path(@game), class: 'button btn btn-danger', user_id: current_user, method: :put, data: { confirm: 'Are you sure you want to Concede to defeat?' } %>
+
 </div>
 <div id="show_game">
 	<div class="chessboard">
