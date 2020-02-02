@@ -40,6 +40,15 @@ class GamesController < ApplicationController
     redirect_to root_path
   end
 
+  def set_tie
+    @game = Game.find(params[:id])
+    if @game.stalemate(current_user.id)
+      @game.update_attributes(game_over: true)
+      white_player.update_attributes(num_ties: white_player.num_ties + 1)
+      black_player.update_attributes(num_ties: black_player.num_ties + 1)
+    end
+  end
+
   private
 
   def game_params
