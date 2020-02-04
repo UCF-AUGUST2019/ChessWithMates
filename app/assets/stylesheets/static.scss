@@ -8,14 +8,17 @@ html {
 
 .hero-text {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero_2.jpg");
-	height: 400px;
+	min-height: 400px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
 	color: white;
-	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
+	padding-bottom: 60px;
+	padding-top: 60px;
+	font-family: 'Josefin Sans', sans-serif;
+	box-shadow: -2px 0.5px 5px grey;
 }
 
 .hero-text h1 {

@@ -1,5 +1,5 @@
+<div class="hero">
   <div class="hero-text">
-    <br /><br /><br />
     <h1>
       <% if current_user.present? %>
         Welcome <%= current_user.username %>.
@@ -16,5 +16,6 @@
     <br />
       <%= link_to 'Find a Game', games_path, class: 'btn btn-lg btn-primary' %>
       <br /><br />
-      <%= link_to 'Create a Game', new_game_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to 'Join a Game', new_game_path, class: 'btn btn-lg btn-primary' %>
   </div>
+</div>

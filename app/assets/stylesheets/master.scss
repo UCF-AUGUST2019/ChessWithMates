@@ -2,6 +2,11 @@
 @import 'font_awesome5_webfont';
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600|Lobster&display=swap');
 
+.body {
+	margin-bottom: 0;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
 .navbar {
 	background: image_url('nav_bg.png');
 	box-shadow: -2px 0.5px 5px grey;
@@ -9,6 +14,7 @@
 
 .navbar a {
 	color: black;
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 .navbar-brand {
@@ -48,9 +54,20 @@
 	color: black;
 	border-color: black;
 	text-shadow: 0;
+	border-radius: 0;
 }
 
 .btn:hover {
-	background-color: gray;
+	opacity: 50%;
+	background-color: white;
 	border-color: black;
+	color: black;
+}
+
+.clear {
+	clear: both;
+}
+
+.alert {
+	margin: 0;
 }

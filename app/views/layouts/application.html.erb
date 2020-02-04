@@ -62,5 +62,38 @@
 
     <%= yield %>
 
+    <div id="clear"></div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-4 text-center">
+            <h5>Quick Links</h5>
+            <hr class="f_hr mt-0 mb-2" />
+            <%= link_to 'Join Game', games_path %>
+            <br />
+            <%= link_to 'Create Game', new_game_path %>
+            <br />
+            <%= link_to 'My Dashboard', '#' %>
+          </div>
+          <div class="col-12 col-sm-4 text-center">
+            <h5>About</h5>
+            <hr class="f_hr mt-0 mb-2" />
+            <%= link_to 'Meet the Team', '#' %>
+            <br />
+            <%= link_to 'Privacy Policy', '#' %>
+          </div>
+          <div class="col-12 col-sm-4 text-center repo">
+            <h5>Repository</h5>
+            <hr class="f_hr mt-0 mb-2" />
+            <%= link_to 'https://github.com/UCF-AUGUST2019/ChessApp' do %>
+              <i class="fab fa-lg fa-github mt-1"></i>&nbsp GitHub
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
+
 </html>
