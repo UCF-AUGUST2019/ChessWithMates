@@ -1,0 +1,16 @@
+<h1> <%= current_user.username %>'s Dashboard</h1>
+<br />
+<br />
+<h3>
+  Current games:
+  <br />
+  <br />
+  <% @games.each do |game| %>
+    <% if current_user.id == game.white_id || game.black_id && game.game_over == nil %>
+      <%= game.name %>
+      <br />
+      <%= link_to 'Continue', game_path(game), class: 'button btn btn-primary' %>
+    <% end %>
+    <br />
+  <% end %>
+</h3>
