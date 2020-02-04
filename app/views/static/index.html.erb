@@ -1,21 +1,19 @@
 <div class="hero">
-  <div class="hero-text">
+  <div class="hero-text col-12 col-sm-6 offset-sm-3">
     <h1>
+    <br />
       <% if current_user.present? %>
         Welcome <%= current_user.username %>.
       <% else %>
-        Welcome to Chess with Mates.
+        Welcome to <span class="cwm">Chess <h3 style="display:inline;">with</h3> Mates.</span>
       <% end %>
     </h1>
     <br />
     <h1>
-      <strong>
         Are you up for the challenge?
-      </strong>
     </h1>
     <br />
-      <%= link_to 'Find a Game', games_path, class: 'btn btn-lg btn-primary' %>
-      <br /><br />
-      <%= link_to 'Join a Game', new_game_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to 'Find a Game', games_path, class: 'btn btn-lg btn-primary mr-1' %>
+      <%= link_to 'Join a Game', new_game_path, class: 'btn btn-lg btn-primary ml-2' %>
   </div>
 </div>

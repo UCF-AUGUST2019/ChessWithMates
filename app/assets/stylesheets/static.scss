@@ -6,7 +6,7 @@ html {
 	height: 100%;
 }
 
-.hero-text {
+.hero {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero_2.jpg");
 	min-height: 400px;
 	background-position: center;
@@ -15,12 +15,22 @@ html {
 	text-align: center;
 	color: white;
 	font-weight: 600;
-	padding-bottom: 60px;
-	padding-top: 60px;
+	padding-bottom: 50px;
+	padding-top: 50px;
 	font-family: 'Josefin Sans', sans-serif;
 	box-shadow: -2px 0.5px 5px grey;
 }
 
 .hero-text h1 {
 	text-shadow: 1px 1px 1px black;
+	font-weight: 300;
+}
+
+.hero-text {
+	background: rgba(0,0,0,0.7);
+	height: 300px;
+}
+
+.cwm {
+	font-family: 'Lobster', cursive;
 }
