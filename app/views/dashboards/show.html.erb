@@ -1,16 +1,50 @@
-<h1> <%= current_user.username %>'s Dashboard</h1>
+<h1>| <%= current_user.username %>'s Dashboard |</h1>
 <br />
 <br />
-<h3>
+<h2>
   Current games:
   <br />
   <br />
+</h2>
+  <h4>
   <% @games.each do |game| %>
-    <% if current_user.id == game.white_id || game.black_id && game.game_over == nil %>
+    <% if current_user.id == game.white_id || game.black_id && game.game_over == false %>
       <%= game.name %>
       <br />
       <%= link_to 'Continue', game_path(game), class: 'button btn btn-primary' %>
     <% end %>
     <br />
   <% end %>
+  </h4>
+<h3>
+  <br />
+  Stats:
+  <br />
+  <br />
 </h3>
+  <h5>
+    Total Games Played: 
+      <% total_games = (@games.where(black_player: current_user).count + @games.where(white_player: current_user).count).to_i %>
+      <%= total_games %>
+      <br />
+    Total Wins: 
+      <%= current_user.num_wins %>
+      <br />
+    Total Losses: 
+      <% if current_user.num_wins + current_user.num_ties == 0 %>
+        0
+      <% else %>
+        <%= total_games - (current_user.num_wins + current_user.num_ties) %>
+      <% end %>
+      <br />
+    Total Draws: 
+      <%= current_user.num_ties %>
+      <br />
+    Win %: 
+      <% if total_games == 0 %>
+        <%= 0 %>
+      <% else %>
+        <% win_percent = current_user.num_wins / total_games %>
+        <%= win_percent.to_f %>
+      <% end %>
+  </h5>
