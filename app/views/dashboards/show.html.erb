@@ -40,11 +40,12 @@
     Total Draws: 
       <%= current_user.num_ties %>
       <br />
-    Win %: 
+    Win Percentage: 
       <% if total_games == 0 %>
         <%= 0 %>
       <% else %>
-        <% win_percent = current_user.num_wins / total_games %>
-        <%= win_percent.to_f %>
+        <% win_percent = (current_user.num_wins.to_f / total_games.to_f) * 100 %>
+        <%= win_percent %>%
+        <br />
       <% end %>
   </h5>
