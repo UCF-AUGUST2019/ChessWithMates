@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-  scope :available, -> { where(black_id: nil, game_over: nil) }
+  scope :available, -> { where(black_id: nil, game_over: false) }
   belongs_to :user, required: false
   belongs_to :white_player, class_name: 'User', foreign_key: 'white_id', optional: true
   belongs_to :black_player, class_name: 'User', foreign_key: 'black_id', optional: true
