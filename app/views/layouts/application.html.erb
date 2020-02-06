@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chess</title>
+    <title>Chess with Mates</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,14 +10,16 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <%= link_to root_path, class: 'navbar-brand' do %>
-        <i class="fa fa-chess-knight"></i> Chess App
+        <i class="fa fa-lg fa-chess-knight logo", style="color: darkred;"></i> 
+        <div class="title ml-1">
+          Chess <span class="with" style="font-size:18px;">with</span> Mates
+        </div>
       <% end %>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -59,5 +61,44 @@
 
     <%= yield %>
 
+    <div class="clear"></div>
+  <div class="footer_wrapper">
+    <footer class="footer">        
+    <br />
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-4 text-center">
+            <h5>Quick Links</h5>
+            <hr class="f_hr mt-0 mb-2" />
+            <%= link_to 'Join Game', games_path %>
+            <br />
+            <%= link_to 'Create Game', new_game_path %>
+            <br />
+            <%= link_to 'My Dashboard', '#' %>
+          </div>
+          <div class="col-12 col-sm-4 text-center">
+            <h5>About</h5>
+            <hr class="f_hr mt-0 mb-2" />
+            <%= link_to 'Meet the Team', '#' %>
+            <br />
+            <%= link_to 'Privacy Policy', '#' %>
+          </div>
+          <div class="col-12 col-sm-4 text-center repo">
+            <h5>Repository</h5>
+            <hr class="f_hr mt-0 mb-2" />
+            <%= link_to 'https://github.com/UCF-AUGUST2019/ChessApp' do %>
+              <i class="fab fa-lg fa-github mt-1"></i>&nbsp GitHub
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <br />
+    </footer>
+  </div>
+
+    <div class="clear"></div>
+
+  </div>          
   </body>
+
 </html>

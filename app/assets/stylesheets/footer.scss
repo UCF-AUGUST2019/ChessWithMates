@@ -1,0 +1,49 @@
+@import 'font_awesome5_webfont';
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+  width: 100%;
+  background: image_url('footer.png');
+  color: whitesmoke;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  bottom: 0;
+  height: 155px;
+  overflow:hidden;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer a:hover {
+  color: darkred;
+}
+
+.f_hr {
+  width: 50px;
+  color: white;
+  border: solid;
+  border-width: 0.8px;
+}
+
+.repo a:hover {
+  text-decoration: none;
+}
+
+.footer_wrapper {
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
