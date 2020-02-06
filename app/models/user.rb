@@ -10,6 +10,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, 
          :validatable, authentication_keys: [:login]
 
+  after_create :set_score_defaults
+
+  def set_score_defaults
+      update_attributes(num_wins: 0, num_ties: 0)
+  end
+
   def login
     @login || self.username || self.email
   end
