@@ -15,10 +15,9 @@ html {
 	text-align: center;
 	color: white;
 	font-weight: 600;
-	padding-bottom: 50px;
-	padding-top: 50px;
 	font-family: 'Josefin Sans', sans-serif;
 	box-shadow: -2px 0.5px 5px grey;
+	display: block;
 }
 
 .hero-text h1 {
@@ -28,7 +27,7 @@ html {
 
 .hero-text {
 	background: rgba(0,0,0,0.7);
-	height: 300px;
+	min-height: 300px;
 }
 
 .cwm {

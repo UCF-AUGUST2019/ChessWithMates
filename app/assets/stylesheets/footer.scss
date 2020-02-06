@@ -1,28 +1,26 @@
 @import 'font_awesome5_webfont';
 
-html {
-	height: 100%;
+html, body {
+  height: 100%;
 }
-
 body {
-	min-height: 100%;
-	display: flex;
+  display: flex;
   flex-direction: column;
 }
-
-#flex-content-container {
-	flex: 1;
+.content {
+  flex: 1 0 auto;
 }
 
 .footer {
-  bottom: 0;
+  flex-shrink: 0;
   width: 100%;
-  min-height: 140px;
   background: image_url('footer.png');
-  padding: 15px;
   color: whitesmoke;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
+  bottom: 0;
+  height: 155px;
+  overflow:hidden;
 }
 
 .footer a {
@@ -44,3 +42,8 @@ body {
   text-decoration: none;
 }
 
+.footer_wrapper {
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}

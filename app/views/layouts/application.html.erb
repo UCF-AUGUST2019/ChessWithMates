@@ -10,7 +10,6 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -62,9 +61,10 @@
 
     <%= yield %>
 
-    <div id="clear"></div>
-
-    <div class="footer">
+    <div class="clear"></div>
+  <div class="footer_wrapper">
+    <footer class="footer">        
+    <br />
       <div class="container">
         <div class="row">
           <div class="col-12 col-sm-4 text-center">
@@ -92,8 +92,13 @@
           </div>
         </div>
       </div>
-    </div>
+      <br />
+    </footer>
+  </div>
 
+    <div class="clear"></div>
+
+  </div>          
   </body>
 
 </html>
