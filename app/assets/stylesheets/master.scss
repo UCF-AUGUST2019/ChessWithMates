@@ -71,3 +71,45 @@
 .alert {
 	margin: 0;
 }
+
+.devise_wrapper {
+	background-image: url('game_bg.png');
+	height: 100%;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.devise-box {
+	background: image_url('white_space.png');
+	padding: 10px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	-webkit-box-shadow: 0 8px 9px -7px black;
+	   -moz-box-shadow: 0 8px 9px -7px black;
+	        box-shadow: 0 8px 9px -7px black;
+}
+
+.devise-box-alt {
+	background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
+	padding: 10px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	color: whitesmoke;
+	-webkit-box-shadow: 0 8px 9px -7px black;
+	   -moz-box-shadow: 0 8px 9px -7px black;
+	        box-shadow: 0 8px 9px -7px black;
+}
+
+.field {
+	margin-top: 15px;
+	font-size: 17px;
+}
+
+.devise_piece {
+	font-size: 100px;
+}
+
+.btn-d {
+	width: 150px;
+	background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
+	color: whitesmoke;
+}
