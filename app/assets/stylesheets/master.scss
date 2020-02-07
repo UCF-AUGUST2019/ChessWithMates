@@ -34,7 +34,7 @@
 	font-size: 25px;
 	display: inline;
 	font-family: 'Lobster', cursive;
-	color: darkred;
+	color:rgba(162, 26, 26, 0.8);
 	text-shadow: 1px 0.5px 0.5px lightgray;
 }
 
@@ -74,7 +74,6 @@
 
 .devise_wrapper {
 	background-image: url('game_bg.png');
-	height: 100%;
 	font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -112,4 +111,21 @@
 	width: 150px;
 	background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
 	color: whitesmoke;
+}
+
+.facts {
+	font-weight: 300;
+	font-size: 16px;
+}
+
+.f_hr {
+  width: 50px;
+  color: white;
+  border: solid;
+  border-width: 0.8px;
+}
+
+.margin_container {
+	margin-top: 33%;
+	margin-bottom: 33%;
 }

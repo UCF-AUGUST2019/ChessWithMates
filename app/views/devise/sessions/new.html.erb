@@ -1,14 +1,14 @@
 <div class="devise_wrapper row">
   <br />
   <div class="devise-box-alt col-sm-4 offset-sm-2 text-center ">
-    <br /><br /><br />
-    <h2 class="mt-auto">Welcome Back!</h2>
-    <br /><br /><br />
-    <i class="fa fa-lg fa-chess-rook ml-auto mr-auto mt-auto mb-auto devise_piece"></i>
-    <br /><br/ ><br /><br />
+    <i class="fa fa-lg fa-chess-rook ml-auto mr-auto mt-4 mb-4 devise_piece"></i>
+    <br />
+    <h4 class="mt-4"> Did you know? </h4>
+    <hr class="f_hr" />
+    <p class="facts col-12 text-center"><%= Facts.give_fact %><p>
   </div>
     <div class="devise-box col-sm-4">
-      <h2 class="text-center mt-2">Log in</h2>
+      <h2 class="text-center mt-2">Sign in</h2>
       <hr />
         <div class="col-10 offset-1 text-center">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -30,7 +30,7 @@
           <% end %>
 
           <div class="actions">
-            <%= f.submit "Log in", class: "btn-primary btn btn-d mb-2" %>
+            <%= f.submit "Sign in", class: "btn-primary btn btn-d mb-2" %>
           </div>
         <% end %>
         <%= render "devise/shared/links" %>
