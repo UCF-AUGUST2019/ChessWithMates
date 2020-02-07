@@ -22,7 +22,11 @@
 		<br />
 		<br />
 		<% if @game.game_over == true %>
-			Winner: <%= @game.winner %>
+			<% if @game.winner == @game.white_id %>
+				Winner: <%= @game.white_player.username %>
+			<% elsif @game.winner == @game.black_id %>
+				Winner: <%= @game.black_player.username %>
+			<% end %>
 		<% end %>
 	</h3>
 	<br />
