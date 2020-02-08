@@ -1,8 +1,8 @@
-<div class="hero align-middle">
-<br /><br />
-  <div class="hero-text mr-auto ml-auto col-12 col-md-10 offset-md-1 col-xl-6 offset-xl-3">
+<div class="devise_wrapper row">
+  <br /><br />
+  <div class="hero col-xs-12 col-md-6">
     <h1>
-    <br />
+    <br /><br />
       <% if current_user.present? %>
         Welcome <%= current_user.username %>.
       <% else %>
@@ -13,11 +13,20 @@
     <h1>
         Are you up for the challenge?
     </h1>
-    <br />
+    <br /><br />
       <%= link_to 'Join Game', games_path, class: 'btn btn-lg btn-primary mr-1' %>
       <%= link_to 'New Game', new_game_path, class: 'btn btn-lg btn-primary ml-2' %>
     <br /><br />
   </div>
   <br /><br />
+  <div class="col-xs-12 col-md-4 text-center devise-box ml-auto mr-auto">
+    <h3 class="mt-3 mb-0">Leaderboard</h3>
+    <hr class="f_hr mt-1", style="border-color:black;" />
+    <% @users = User.where.not(username: nil) %>
+    <% @users.first(10).each_with_index do |user, rank| %>
+      <h5><%= rank+1 %>. <%= user.username %></h5>
+    <% end %>
+  </div>
 </div>
+
 <div class="clear"></div>
