@@ -16,7 +16,7 @@
       </button>
 
       <%= link_to root_path, class: 'navbar-brand' do %>
-        <i class="fa fa-lg fa-chess-knight logo", style="color: rgba(162, 26, 26, 0.8);"></i> 
+        <i class="fa fa-lg fa-chess-knight logo", style="color: rgba(117, 49, 40, 0.91);"></i> 
         <div class="title ml-1">
           Chess <span class="with" style="font-size:18px;">with</span> Mates
         </div>
@@ -24,12 +24,21 @@
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Play Now
+      </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to 'Browse Available Games', games_path, class: 'dropdown-item' %>
+          <%= link_to 'Create New Game', new_game_path, class: 'dropdown-item' %>
+        </div>
+      <!-- </li>
         <li class="nav-item active">
           <%= link_to 'Join Game', games_path, class: 'nav-link' %>
         </li>
         <li class="nav-item active">
           <%= link_to 'Create Game', new_game_path, class: 'nav-link' %>
-        </li>
+        </li> ! -->
       </ul>
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>

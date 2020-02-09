@@ -28,17 +28,17 @@
       <%= total_games %>
       <br />
     Total Wins: 
-      <%= current_user.num_wins %>
+      <%= current_user.num_wins.to_i %>
       <br />
     Total Losses: 
-      <% if current_user.num_wins + current_user.num_ties == 0 %>
+      <% if current_user.num_wins.to_i + current_user.num_ties.to_i == 0 %>
         0
       <% else %>
-        <%= total_games - (current_user.num_wins + current_user.num_ties) %>
+        <%= total_games - (current_user.num_wins.to_i + current_user.num_ties.to_i) %>
       <% end %>
       <br />
     Total Draws: 
-      <%= current_user.num_ties %>
+      <%= current_user.num_ties.to_i %>
       <br />
     Win Percentage: 
       <% if total_games == 0 %>
