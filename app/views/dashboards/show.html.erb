@@ -34,7 +34,7 @@
       <% if current_user.num_wins.to_i + current_user.num_ties.to_i == 0 %>
         0
       <% else %>
-        <%= total_games - (current_user.num_wins + current_user.num_ties) %>
+        <%= total_games - (current_user.num_wins.to_i + current_user.num_ties.to_i) %>
       <% end %>
       <br />
     Total Draws: 
