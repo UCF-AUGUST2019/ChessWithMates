@@ -1,31 +1,36 @@
-<%# AVAILABLE GAMES (BLACK_ID = NIL) %>
-<div class="available">
-  <h1>List of Available Games:</h1>
+<div class="devise_wrapper" style="height:auto;">
+  <%# AVAILABLE GAMES (BLACK_ID = NIL) %>
+  <div class="available">
+    <div class="browse_bar">
+      <h1 class="browse">Browse Available Games</h1>
+    </div>
 
-  <br />
-  <br />
-
-  <% if @avail_games.present? %>
-    <h3>Open Games:</h3>
-  <% end %>
-
-  <% if @avail_games.blank? %>
-    <h3>No Open Games:</h3>
-    <br />
-    <%= link_to 'Create Game', new_game_path, class: 'btn btn-primary' %>
-  <% end %>
-
-  <br />
-
-  <% @avail_games.each do |game| %>
-    <h6>
-      <%= game.name %>
-    </h6>
-      <%= simple_form_for game, :method => :put do |f| %>
-        <%= f.input :black_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-        <%= f.submit 'Join Game', class: 'btn btn-primary' %>
-      <% end %>
+    <% if @avail_games.blank? %>
+      <h3>No Open Games:</h3>
       <br />
-  <% end %>
+      <%= link_to 'Create Game', new_game_path, class: 'btn btn-primary' %>
+    <% end %>
 
+    <div class="row">
+      <% @avail_games.each do |game| %>
+        <div class="devise-box col-12 col-sm-3 offset-sm-1 mr-auto ml-auto">
+          <h5>
+            <%= game.name %>
+          </h5>
+          <i class="fa fa-chess-board board mb-3"></i>
+          <h6>
+            Opponent: <%= game.white_player.username %>
+          </h6>
+            <%= simple_form_for game, :method => :put do |f| %>
+              <%= f.input :black_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+              <%= f.submit 'Join Game', class: 'btn-primary btn-g pt-1 pb-1 mt-1' %>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-12 text-center">
+      <%= link_to 'Create New Game', new_game_path, class: 'btn btn-d btn-primary mt-3 mb-1', style: 'width:auto;' %>
+    </div>
+  </div>
+  <br />
 </div>
