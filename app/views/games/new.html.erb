@@ -1,12 +1,18 @@
-<br />
-<div class="booyah-box col-10 offset-1 text-center">
+<div class="devise_wrapper row" style="height:100%;">
   <br />
-  <h1>New game:</h1>
-  <br />
-  <%= simple_form_for @game do |f| %>
-    <%= f.input :name, label: false, placeholder: 'Enter Game Here' %>
-    <%= f.hidden_field :white_id, value: current_user.id %>
-    <br />
-    <%= f.submit "Create", class: 'btn btn-primary' %>
-  <% end %>
+  <div class="devise-box col-10 offset-1 col-sm-6 offset-sm-3 text-center" style="height:auto;">
+    <h1 class="browse text-center mt-2">Create New Game</h1>
+    <hr />
+    <h4>Game Title</h4>
+    <%= simple_form_for @game do |f| %>
+      <%= f.input :name, label: false %>
+      <%= f.hidden_field :white_id, value: current_user.id %>
+      <%= f.submit "Create", class: 'btn btn-d btn-primary mt-3' %>
+    <% end %>
+  </div>
+  <div class="devise-box-alt mt-0 col-10 offset-1 col-sm-6 offset-sm-3 text-center">
+    <h4 class="mt-4"> Did you know? </h4>
+    <hr class="f_hr" />
+    <p class="facts col-12 text-center"><%= Facts.give_fact %><p>
+  </div>
 </div>

@@ -165,3 +165,8 @@
 	background-color: white;
 	box-shadow: 2px 2px 4px grey;
 }
+
+#game_name, #game_wp, #game_bp, #game_turn, #game_quit {
+	display: inline-block;
+	text-align: center;
+}
