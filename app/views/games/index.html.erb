@@ -1,4 +1,4 @@
-<div class="devise_wrapper" style="height:auto;">
+<div class="devise_wrapper" style="height:inherit;">
   <%# AVAILABLE GAMES (BLACK_ID = NIL) %>
   <div class="available">
     <div class="browse_bar">
@@ -11,9 +11,9 @@
       <%= link_to 'Create Game', new_game_path, class: 'btn btn-primary' %>
     <% end %>
 
-    <div class="row">
+    <div class="row justify-content-center">
       <% @avail_games.each do |game| %>
-        <div class="devise-box col-12 col-sm-3 offset-sm-1 mr-auto ml-auto">
+        <div class="devise-box col-12 col-sm-3 ml-4 mr-4">
           <h5>
             <%= game.name %>
           </h5>

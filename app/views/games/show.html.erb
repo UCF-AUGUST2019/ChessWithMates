@@ -7,9 +7,11 @@
 	</div>
 	<div class="col-12 col-sm-4">
 		<h5 class="game_labels">Red Player:</h5>
-		<%= @game.black_player&.username %>
-			<% else %>
-		Waiting for opponent...
+		<% if @game.black_player.present? %>
+			<%= @game.black_player&.username %>
+		<% else %>
+			Waiting for opponent...
+		<% end %>
 	</div> 
 </div>
 
