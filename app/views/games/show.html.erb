@@ -1,40 +1,27 @@
-<div id="gamestats">
-	<h1>
-		<%= @game.name %>
-	</h1>
-	<br />
-	<h3> 
-		White Player:
-		<%= @game.white_player.username %>
-		<br />
-		<br />
-		Black Player:
+<div class="game_bar row text-center pt-4">
+	<div class="col-12 col-sm-3 text-left mb-1">
+		<h5 class="game_title"><%= @game.name %></h5>
+	</div>
+	<div class="col-12 col-sm-4 offset-sm-1"> 
+		<h5 class="game_labels">White Player:</h5> <%= @game.white_player.username %>
+	</div>
+	<div class="col-12 col-sm-4">
+		<h5 class="game_labels">Red Player:</h5>
 		<%= @game.black_player&.username %>
-	</h3> 
-	<br />
-	<h3>
-		<% if @game.turn.odd? %>
-			<%= @game.white_player.username %>
-		<% else %>
-			<%= @game.black_player&.username %>
-		<% end %>
-		's turn...
-		<br />
-		<br />
-		<% if @game.game_over == true %>
-			<% if @game.winner == @game.white_id %>
-				Winner: <%= @game.white_player.username %>
-			<% elsif @game.winner == @game.black_id %>
-				Winner: <%= @game.black_player.username %>
-			<% end %>
-		<% end %>
-	</h3>
-	<br />
-
-	<%= link_to 'concede', concede_game_path(@game), class: 'button btn btn-danger', user_id: current_user, method: :put, data: { confirm: 'Are you sure you want to Concede to defeat?' } %>
-
+			<% else %>
+		Waiting for opponent...
+	</div> 
 </div>
+
 <div id="show_game">
+	<div class="col-12 turn text-center mt-0">
+		<% if @game.turn.odd? && @game.white_player == current_user || @game.turn.even? && @game.black_player == current_user %>
+			It's Your Move
+		<% else %>
+			Waiting for Opponent's Move
+		<% end %>
+		&nbsp <%= link_to 'Forfeit Game', concede_game_path(@game), class: 'button btn btn-lg btn-danger forfeit mt-4 mb-4', user_id: current_user, method: :put, data: { confirm: 'Are you sure you want to forfeit? (It will count as a loss)' } %>
+	</div>
 	<div class="chessboard">
 		<% (1..8).each do |y| %>
 			<div class="row">
