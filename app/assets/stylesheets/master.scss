@@ -4,6 +4,7 @@
 
 .body {
 	font-family: 'Josefin Sans', sans-serif;
+	background: image_url('game_bg.png');
 }
 
 .navbar {
@@ -167,7 +168,44 @@
 	box-shadow: 2px 2px 4px grey;
 }
 
+.board_d {
+	font-size: 60px;
+	border-style: solid;
+	border-width: thin;
+	background-color: white;
+	height: fit-content;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 5px;
+}
+
 #game_name, #game_wp, #game_bp, #game_turn, #game_quit {
 	display: inline-block;
 	text-align: center;
+}
+
+.game_name_dash {
+	display: inline;
+	vertical-align: top;
+	font-size: larger;
+	margin-left: 8px;
+}
+
+.dash_turns {
+	font-weight: bolder;
+	font-size: xx-large;
+}
+
+.continue {
+	line-height: 22px;
+	font-size: xx-large;
+  text-align: center;
+}
+
+.continue a {
+	color: rgba(117, 49, 40, 0.91);
+}
+
+.continue a:hover {
+	color: black;
 }
