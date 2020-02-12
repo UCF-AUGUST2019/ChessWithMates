@@ -55,6 +55,7 @@ $(document).ready(function () {
 		start:function(){$(this).stop(true,true)}
 	});
 	$('.space').droppable({
+		snap: '.space',
 		drop:function(event, ui){
 				snapToMiddle(ui.draggable,$(this));
 		}
