@@ -49,10 +49,23 @@
 $(document).ready(function () {
 	$(".piece").draggable({
 		containment: '.chessboard',
-		revert: true
+		opacity: .4,
+		create: function(){$(this).data('position',$(this).position())},
+		cursorAt:{left:15},
+		start:function(){$(this).stop(true,true)}
 	});
-	$(".space").droppable({
-		hoverClass: "space-hover"
-	});
+	$('.space').droppable({
+		drop:function(event, ui){
+				snapToMiddle(ui.draggable,$(this));
+		}
 });
+
+}); 
+
+function snapToMiddle(dragger, target){
+    var topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 40;
+    var leftMove= target.position().left - dragger.data('position').left + (target.outerWidth(true) - dragger.outerWidth(true)) / 2;
+    dragger.animate({top:topMove,left:leftMove},{duration:600,easing:'easeOutBack'});
+}
+
 </script>
