@@ -3,7 +3,6 @@ class PiecesController < ApplicationController
   
   def update
     @piece = Piece.find(params[:id])
-    @game = @piece.game
     if @piece.color == "black" && @piece.game.white_player.username == current_user.username
       render :text, status: :unprocessable_entity
     end
@@ -11,6 +10,9 @@ class PiecesController < ApplicationController
     if @piece.color == "white" && @piece.game.white_player.username == current_user.username 
       @piece.update_attributes(piece_params)
     end
+
+    @piece.game.turn = @piece.game.turn + 1
+    @piece.game.save!
 
   end
 

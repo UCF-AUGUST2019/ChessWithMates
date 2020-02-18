@@ -16,7 +16,7 @@
 </div>
 
 <div id="show_game">
-	<div class="col-12 turn text-center mt-0">
+	<div class="col-12 turn text-center mt-0 move">
 		<% if @game.turn.odd? && @game.white_player == current_user || @game.turn.even? && @game.black_player == current_user %>
 			It's Your Move
 		<% else %>
@@ -62,36 +62,45 @@
 
 <script>
 
-$(document).ready(function () {
-	$(".piece").draggable({
-		containment: '.chessboard',
-		opacity: .4,
-		create: function(){$(this).data('position',$(this).position())},
-		cursorAt:{left:15},
-		start:function(){$(this).stop(true,true)}
-	});
-	$(".space").droppable({
-		snap: '.space',
-		drop:function(event, ui){
-			snapToMiddle(ui.draggable,$(this));
-			var x = $(this).attr('data-x')
-			var y = $(this).attr('data-y')
+<% if @game.turn.odd? %>
+	$(document).ready(function () {
 
-			$.ajax({
-				type: 'PUT',
-					url: ui.draggable.data('update-url'),
-					dataType: 'json',
-					data: { piece: { x_pos: x, y_pos: y } },
-					success: location.reload()
-					});
-				}
-
-			});
+		$(".piece").draggable({
+			containment: '.chessboard',
+			revert: false,
+			opacity: .4,
+			create: function(){$(this).data('position',$(this).position())},
+			cursorAt:{left:15},
+			start:function(){$(this).stop(true,true)}
 		});
-function snapToMiddle(dragger, target){
-    var topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 40;
-    var leftMove= target.position().left - dragger.data('position').left + (target.outerWidth(true) - dragger.outerWidth(true)) / 2;
-    dragger.animate({top:topMove,left:leftMove},{duration:600,easing:'easeOutBack'});
-}
+		$(".space").droppable({
+			snap: '.space',
+			drop:function(event, ui){
+				var confirmation = confirm("are you sure you want to remove the item?");
+				if (confirmation) {
+				snapToMiddle(ui.draggable,$(this));
+				var x = $(this).attr('data-x')
+				var y = $(this).attr('data-y')
+				$.ajax({
+					type: 'PUT',
+						url: ui.draggable.data('update-url'),
+						dataType: 'json',
+						data: { piece: { x_pos: x, y_pos: y } },
+						});
+						} else {
+							$(".piece").draggable({
+								revert: true,
+						});
+						}
+						window.location.href = window.location.href;
+					}
+				});
+			});
+	function snapToMiddle(dragger, target){
+			var topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 40;
+			var leftMove= target.position().left - dragger.data('position').left + (target.outerWidth(true) - dragger.outerWidth(true)) / 2;
+			dragger.animate({top:topMove,left:leftMove},{duration:600,easing:'easeOutBack'});
+	}
 
-</script>
+	</script>
+<% end %>
