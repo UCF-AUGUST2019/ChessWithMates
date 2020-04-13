@@ -1,24 +1,31 @@
-# README
+# Chess w/ Mates
+
 [![Codeship Status for UCF-AUGUST2019/ChessApp](https://app.codeship.com/projects/444e7260-ff3c-0137-36b1-3a5faa18747a/status?branch=master)](https://app.codeship.com/projects/377915)
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+A Full Stack fully functional 1v1 Chess Game.
 
-* Ruby version
+<img src="images/index.PNG">
 
-* System dependencies
+## Browse playable Games
 
-* Configuration
+<img src="images/browse.PNG">
 
-* Database creation
+## 1v1 Game Mode
 
-* Database initialization
+<img src="images/board.PNG">
 
-* How to run the test suite
+## Authentication
 
-* Services (job queues, cache servers, search engines, etc.)
+<img src="images/auth.PNG">
 
-* Deployment instructions
+## Deployment
 
-* ...
+- [https://chesswithmates.herokuapp.com/](https://chesswithmates.herokuapp.com/)
+
+## Tech
+
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) v: ES6
+- [Ruby](https://www.ruby-lang.org/en/documentation/) v: 2.5.3
+- [Rails](https://rubyonrails.org/) - v: 5.2.2
+- [postgreSQL](https://www.postgresql.org/) - Database
+- [Heroku](https://devcenter.heroku.com/) - Deployment
