@@ -1,77 +1,75 @@
-<div class="devise_wrapper row" style="height:auto;">
-  <div class="devise-box-alt col-12 col-md-5 mr-auto ml-auto pb-2" style="height:fit-content;">
+<div class="devise_wrapper row" style="height: auto;">
+  <!-- Career Stats -->
+  <div
+    class="devise-box-alt col-12 col-md-5 mr-auto ml-auto pb-2"
+    style="height: fit-content;"
+  >
     <div class="col-12 col-md-6 text-left">
       <i class="fa fa-lg fa-user-circle"></i>
-      <span class="ml-1" style="font-size:30px;"><%= current_user.username %></span>
+      <span class="ml-1" style="font-size: 30px;"
+        ><%= current_user.username %></span
+      >
     </div>
-    <div class="col-12 text-left" style="font-weight:300;">
-      <span style="font-size:20px;">Member Since: <%= current_user.created_at.strftime('%B %d, %Y') %></span>
-      <hr style="border-color:white;" />
+    <div class="col-12 text-left" style="font-weight: 300;">
+      <span style="font-size: 20px;"
+        >Member Since: <%= current_user.created_at.strftime('%B %d, %Y')
+        %></span
+      >
+      <hr style="border-color: white;" />
       <h4 class="mt-2">Career Stats</h4>
-        <h5 style="font-weight:300; line-height:32px;">
-          Total Games Played: 
-            <% total_games = (@games.where(black_player: current_user).count + @games.where(white_player: current_user).count).to_i %>
-            <%= total_games %>
-            <br />
-          Total Wins: 
-            <%= current_user.num_wins.to_i %>
-            <br />
-          Total Losses: 
-            <% if current_user.num_wins.to_i + current_user.num_ties.to_i == 0 %>
-              0
-            <% else %>
-              <%= total_games - (current_user.num_wins.to_i + current_user.num_ties.to_i) %>
-            <% end %>
-            <br />
-          Total Draws: 
-            <%= current_user.num_ties.to_i %>
-            <br />
-          Win Percentage: 
-            <% if total_games == 0 %>
-              <%= 0 %>
-            <% else %>
-              <% win_percent = (current_user.num_wins.to_f / total_games.to_f) * 100 %>
-              <%= win_percent %>%
-              <br />
-            <% end %>
-        </h5>
-      </div>  
-    </div>
+      <h5 style="font-weight: 300; line-height: 32px;">
+        Total Games Played: <% total_games = (@games.where(black_player:
+        current_user).count + @games.where(white_player:
+        current_user).count).to_i %> <%= total_games %>
         <br />
-    <div class="col-12 col-md-5 mr-auto ml-auto">
-      <div class="devise-box-alt text-center">
-        <span style="font-size:20px;">Active Games</span>
-      </div>
-      <% @games.each do |game| %>
-        <% if current_user.id == game.white_id || game.black_id && game.game_over == false %>
-          <div class="devise-box text-left" style="height:fit-content;">
-            <div class="row">
-              <i class="fa fa-chess-board board_d"></i>
-              <div class="game_name_dash col-md-6 col-8">
-                <%= game.name %>
-                <br />
-                <div class="dash_turns">
-                  <% if game.turn.odd? && game.white_player == current_user || game.turn.even? && game.black_player == current_user %>
-                    It's Your Move
-                  <% else %>
-                    Opponent's Move
-                  <% end %>
-                </div>
-              </div>
-              <div class="continue mt-auto mb-auto col-12 col-md-4">
-                <%= link_to 'Continue Playing', game_path(game), class: 'browse' %>
-              </div>
-            </div>
+        Total Wins: <%= current_user.num_wins.to_i %>
+        <br />
+        Total Losses: <% if current_user.num_wins.to_i +
+        current_user.num_ties.to_i == 0 %> 0 <% else %> <%= total_games -
+        (current_user.num_wins.to_i + current_user.num_ties.to_i) %> <% end %>
+        <br />
+        Total Draws: <%= current_user.num_ties.to_i %>
+        <br />
+        Win Percentage: <% if total_games == 0 %> <%= 0 %> <% else %> <%
+        win_percent = (current_user.num_wins.to_f / total_games.to_f) * 100 %>
+        <%= win_percent %>%
+        <br />
         <% end %>
-          </div>
-      <% end %>
-      <div class="devise-box-alt justify-content-center col-12 ml-auto mr-auto text-center">
-        <span class="col-12 ml-auto mr-auto justify-content-center" style="font-size:20px;">
-          <%= will_paginate @games, :container => false %>
-        </span>
-      </div>
+      </h5>
     </div>
-    <br />
-</div>
-<div class="devise_wrapper" style="height:100%;">
+  </div>
+  <br />
+  <div class="col-12 col-md-5 mr-auto ml-auto">
+    <div class="devise-box-alt text-center">
+      <span style="font-size: 20px;">Active Games</span>
+    </div>
+    <% @games.each do |game| %> <% if current_user.id == game.white_id ||
+    game.black_id && game.game_over == false %>
+    <div class="devise-box text-left" style="height: fit-content;">
+      <div class="row">
+        <i class="fa fa-chess-board board_d"></i>
+        <div class="game_name_dash col-md-6 col-8">
+          <%= game.name %>
+          <br />
+          <div class="dash_turns">
+            <% if game.turn.odd? && game.white_player == current_user ||
+            game.turn.even? && game.black_player == current_user %> It's Your
+            Move <% else %> Opponent's Move <% end %>
+          </div>
+        </div>
+        <div class="continue mt-auto mb-auto col-12 col-md-4">
+          <%= link_to 'Continue Playing', game_path(game), class: 'browse' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+    <!-- <div class="devise-box-alt justify-content-center col-12 ml-auto mr-auto text-center">
+      <span class="col-12 ml-auto mr-auto justify-content-center" style="font-size: 20px;">
+        <%= will_paginate @games, :container => false %>
+      </span>
+    </div> -->
+  </div>
+  <br />
+  <!-- <div class="devise_wrapper" style="height: 100%;"></div> -->
 </div>
