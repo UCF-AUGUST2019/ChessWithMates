@@ -1,6 +1,6 @@
 <div class="devise_wrapper row">
   <!-- ?Career Stats -->
-  <div class="devise-box-alt col-12 col-md-5 mr-auto ml-auto pb-2">
+  <div class="devise-box-alt col-12 col-md-5 mr-auto ml-auto pb-2" style="height:fit-content;">
     <div class="col-12 col-md-6 text-left">
       <i class="fa fa-lg fa-user-circle"></i>
       <span class="ml-1" style="font-size: 30px;"
@@ -44,7 +44,7 @@
 
   <!-- ?Active Games -->
   <div class="col-12 col-md-5 mr-auto ml-auto">
-    <div class="devise-box-alt text-center">
+    <div class="devise-box-alt-activeGames text-center">
       <span style="font-size: 20px;">Active Games</span>
     </div>
 
@@ -76,7 +76,7 @@
     <% end %>
 
     <!-- ?Active Games pagination -->
-    <div class="devise-box-alt justify-content-center col-12 ml-auto mr-auto text-center">
+    <div class="devise-box-alt-activeGames-paginate justify-content-center col-12 ml-auto mr-auto text-center">
       <span class="col-12 ml-auto mr-auto justify-content-center" style="font-size:20px;">
         <%= will_paginate @games, :container => false %>
       </span>
