@@ -1,151 +1,173 @@
 @import "bootstrap";
-@import 'font_awesome5_webfont';
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600|Lobster&display=swap');
+@import "font_awesome5_webfont";
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600|Lobster&display=swap");
 
 .body {
-	font-family: 'Josefin Sans', sans-serif;
-	background: image_url('game_bg.png');
+  font-family: "Josefin Sans", sans-serif;
+  background: image_url("game_bg.png");
 }
 
 .navbar {
-	background: image_url('nav_bg.png');
-	box-shadow: -2px 0.5px 5px grey;
+  background: image_url("nav_bg.png");
+  box-shadow: -2px 0.5px 5px grey;
 }
 
 .navbar a {
-	color: black;
-	font-family: 'Josefin Sans', sans-serif;
+  color: black;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .navbar-brand {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .navbar-light .navbar-nav .nav-link {
-	color: rgba(0, 0, 0, 0.8);
-	margin-top: 5px;
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 5px;
 }
 
 .booyah-box {
-	-moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
-	-webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
-	box-shadow: 1px 1px 2px 0 #d0d0d0;
-	background: #fff;
-	border: 1px solid #ccc;
-	border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
-	padding: 10px;
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 10px;
 }
 
 .title {
-	font-size: 25px;
-	display: inline;
-	font-family: 'Lobster', cursive;
-	color: rgba(117, 49, 40, 0.91);
-	text-shadow: 1px 0.5px 0.5px lightgray;
+  font-size: 25px;
+  display: inline;
+  font-family: "Lobster", cursive;
+  color: rgba(117, 49, 40, 0.91);
+  text-shadow: 1px 0.5px 0.5px lightgray;
 }
 
 .browse_bar {
-	padding: 15px;
-	background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
-	color: whitesmoke;
-	text-shadow: 1px 0.5px 4px black;
-	box-shadow: 0px 1px 1px black;
+  padding: 15px;
+  background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
+  color: whitesmoke;
+  text-shadow: 1px 0.5px 4px black;
+  box-shadow: 0px 1px 1px black;
 }
 
 .browse {
-	font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
 }
 
 .logo {
-	text-shadow: 1px 0.5px 0.5px lightgray;
-	padding-bottom: 10px;
+  text-shadow: 1px 0.5px 0.5px lightgray;
+  padding-bottom: 10px;
 }
 
 .with {
-	margin-left: -2px;
-	margin-right: -3px;
+  margin-left: -2px;
+  margin-right: -3px;
 }
 
 .btn-primary {
-	background-color: whitesmoke;
-	color: black;
-	border-color: black;
-	text-shadow: 0;
-	border-radius: 0;
-	color: rgba(117, 49, 40, 0.91);
+  background-color: whitesmoke;
+  color: black;
+  border-color: black;
+  text-shadow: 0;
+  border-radius: 0;
+  color: rgba(117, 49, 40, 0.91);
 }
 
 .btn:hover {
-	opacity: 50%;
-	background-color: white;
-	border-color: black;
-	color: black;
+  opacity: 50%;
+  background-color: white;
+  border-color: black;
+  color: black;
 }
 
 .clear {
-	clear: both;
+  clear: both;
 }
 
 .alert {
-	margin: 0;
+  margin: 0;
 }
 
 .devise_wrapper {
-	background-image: url('game_bg.png');
-	font-family: 'Josefin Sans', sans-serif;
-	height: inherit;
+  background-image: url("game_bg.png");
+  font-family: "Josefin Sans", sans-serif;
+  height: inherit;
 }
 
 .devise-box {
-	background: image_url('white_space.png');
-	padding: 10px;
-	margin-top: 25px;
-	margin-bottom: 25px;
-	-webkit-box-shadow: 0 8px 9px -7px black;
-	   -moz-box-shadow: 0 8px 9px -7px black;
-	        box-shadow: 0 8px 9px -7px black;
+  background: image_url("white_space.png");
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 8px 9px -7px black;
+  -moz-box-shadow: 0 8px 9px -7px black;
+  box-shadow: 0 8px 9px -7px black;
 }
 
 .devise-box-alt {
-	background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
-	padding: 10px;
-	margin-top: 25px;
-	margin-bottom: 25px;
-	color: whitesmoke;
-	-webkit-box-shadow: 0 8px 9px -7px black;
-	   -moz-box-shadow: 0 8px 9px -7px black;
-	        box-shadow: 0 8px 9px -7px black;
+  background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
+  padding: 10px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: whitesmoke;
+  -webkit-box-shadow: 0 8px 9px -7px black;
+  -moz-box-shadow: 0 8px 9px -7px black;
+  box-shadow: 0 8px 9px -7px black;
+}
+
+.devise-box-alt-activeGames {
+  background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
+  padding: 10px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: whitesmoke;
+  -webkit-box-shadow: 0 8px 9px -7px black;
+  -moz-box-shadow: 0 8px 9px -7px black;
+  box-shadow: 0 8px 9px -7px black;
+}
+
+.devise-box-alt-activeGames-paginate {
+  background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  color: whitesmoke;
+  -webkit-box-shadow: 0 8px 9px -7px black;
+  -moz-box-shadow: 0 8px 9px -7px black;
+  box-shadow: 0 8px 9px -7px black;
 }
 
 .field {
-	margin-top: 15px;
-	font-size: 17px;
+  margin-top: 15px;
+  font-size: 17px;
 }
 
 .devise_piece {
-	font-size: 100px;
+  font-size: 100px;
 }
 
 .btn-d {
-	width: 150px;
-	background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
-	color: whitesmoke;
+  width: 150px;
+  background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
+  color: whitesmoke;
 }
 
 .btn-g {
-	width: 100px;
-	background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
-	color: whitesmoke;
-	font-family: 'Josefin Sans', sans-serif;
+  width: 100px;
+  background-image: linear-gradient(rgba(84, 0, 0, 0.8), rgba(84, 0, 0, 0.8));
+  color: whitesmoke;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .btn-g:hover {
-	border-color: black;
+  border-color: black;
 }
 
 .facts {
-	font-weight: 300;
-	font-size: 16px;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .f_hr {
@@ -156,62 +178,66 @@
 }
 
 .margin_container {
-	margin-top: 33%;
-	margin-bottom: 33%;
+  margin-top: 33%;
+  margin-bottom: 33%;
 }
 
 .board {
-	font-size: 90px;
-	border-style: solid;
-	border-width: thin;
-	background-color: white;
-	box-shadow: 2px 2px 4px grey;
+  font-size: 90px;
+  border-style: solid;
+  border-width: thin;
+  background-color: white;
+  box-shadow: 2px 2px 4px grey;
 }
 
 .board_d {
-	font-size: 60px;
-	border-style: solid;
-	border-width: thin;
-	background-color: white;
-	height: fit-content;
-	margin-top: auto;
-	margin-bottom: auto;
-	margin-left: 5px;
+  font-size: 60px;
+  border-style: solid;
+  border-width: thin;
+  background-color: white;
+  height: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
 }
 
-#game_name, #game_wp, #game_bp, #game_turn, #game_quit {
-	display: inline-block;
-	text-align: center;
+#game_name,
+#game_wp,
+#game_bp,
+#game_turn,
+#game_quit {
+  display: inline-block;
+  text-align: center;
 }
 
 .game_name_dash {
-	display: inline;
-	vertical-align: top;
-	font-size: larger;
-	margin-left: 8px;
+  display: inline;
+  vertical-align: top;
+  font-size: larger;
+  margin-left: 8px;
 }
 
 .dash_turns {
-	font-weight: bolder;
-	font-size: xx-large;
+  font-weight: bolder;
+  font-size: xx-large;
 }
 
 .continue {
-	line-height: 22px;
-	font-size: xx-large;
+  line-height: 22px;
+  font-size: xx-large;
   text-align: center;
 }
 
 .continue a {
-	color: rgba(117, 49, 40, 0.91);
+  color: rgba(117, 49, 40, 0.91);
 }
 
 .continue a:hover {
-	color: black;
-	text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 a {
-	color: white;
-	text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
