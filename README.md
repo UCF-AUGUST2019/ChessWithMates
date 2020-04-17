@@ -1,6 +1,6 @@
 # Chess w/ Mates
 
-A Full Stack fully functional 1v1 Chess Game.
+A Full Stack fully functional 1v1 Chess Game. :)
 
 <img src="images/index.PNG">
 
